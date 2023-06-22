@@ -3,6 +3,7 @@ namespace App\Func;
 
 use PDO;
 use PDOException;
+require './app/func/envget.php';
 
 class DB
 {
@@ -12,17 +13,11 @@ class DB
     private function __construct()
     {
         
-        // $host = getenv('DB_HOST');
-        // $port = getenv('DB_PORT');
-        // $dbname = getenv('DB_NAME');
-        // $username = getenv('DB_USERNAME');
-        // $password = getenv('DB_PASSWORD');
-
-        $host = '127.0.0.1';
-        $port = 3306;
-        $dbname = 'webtesting';
-        $username = 'root';
-        $password = '';
+        $host = envget('DB_HOST');
+        $port = envget('DB_PORT');
+        $dbname = envget('DB_NAME');
+        $username = envget('DB_USERNAME');
+        $password = envget('DB_PASSWORD');
 
         try {
             $this->connection = new PDO("mysql:host=$host;port=$port;dbname=$dbname", $username, $password);
