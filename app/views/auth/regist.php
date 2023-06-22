@@ -10,28 +10,28 @@
                         <hr>
 
                         <p class="card-text">
-                            <form method="POST">
+                            <form method="POST" enctype="multipart/form-data">
                                 <div class="mb-3">
                                     <label for="username" class="form-label">Username</label>
                                     <input id="username" type="username"
                                         class="form-control" name="username"
-                                        required autocomplete="username" style="max-width: 400px;">
+                                        required autocomplete="username">
                                 </div>
                                 <div class="mb-3">
                                     <label for="nama_pengguna" class="form-label">Nama Lengkap</label>
                                     <input id="nama_pengguna" type="nama_pengguna"
                                         class="form-control" name="nama_pengguna"
-                                        required autocomplete="nama_pengguna" style="max-width: 400px;">
+                                        required autocomplete="nama_pengguna">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="foto" class="form-label">Upload Foto Profile</label>
-                                    <input class="form-control" type="file" accept=".jpg,.gif,.png" id="foto" name="foto" style="max-width: 400px;">
+                                    <label for="foto" class="form-label">Upload Foto Profil</label>
+                                    <input class="form-control" type="file" accept=".jpg,.gif,.png" id="foto" name="foto">
                                 </div>
                                 <label for="password" class="form-label">Password</label>
                                 <div class="input-group">
                                     <input id="password" type="password"
                                         class="form-control" name="password"
-                                        required autocomplete="new-password" style="max-width: 350px;">
+                                        required autocomplete="new-password">
                                     <button class="btn btn-outline-secondary" type="button" id="mataPassword"
                                         onclick="showPassword()">
                                         <i class="fa-solid fa-eye"></i>
@@ -39,14 +39,10 @@
 
                                 </div>
                                 <div>
-                                    <button type="submit" class="btn btn-outline-success mt-5">Daftar</button>
+                                    <button type="submit" class="btn btn-outline-success mt-3">Daftar</button>
                                 </div>
                             </form>
                         </p>
-
-
-                        <p class="card-text"><small class="text-body-secondary">Belum punya akun? &dash; <a
-                                    href="/regist" class="lnk">Daftar!</a></small></p>
                         <p class="card-text text-end"><small class="text-body-secondary"><a href="/lupaaa">Lupa
                                     Password</a></small>
                         </p>

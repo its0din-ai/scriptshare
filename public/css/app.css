@@ -13,7 +13,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #363C42;
+  background-color: #363c42;
   border-radius: 20px;
   border: none;
   background-clip: content-box;
@@ -21,4 +21,25 @@ body {
 
 a {
   color: #9cd4d5;
+}
+
+.gambar-profil {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  mask-image: radial-gradient(circle at center, transparent 50%, white 60%);
+}
+
+.lingkar {
+  border-radius: 50%;
+}
+
+.masking {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  position: relative;
 }

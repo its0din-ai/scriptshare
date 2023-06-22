@@ -2,8 +2,11 @@
     <div class="me-auto ms-auto text-center">
         <div>
             <h1>Dashboard Admin</h1>
-            <h3>Hi, <?= $_SESSION['users']['username']; ?>!</h3>
-            <img src="<?= $_SESSION['users']['profile']; ?>" width="150px" height="150px" class="rounded-circle"/>
+            <h3>Hi, <?= $_SESSION['users']['nama_pengguna']; ?>!</h3>
+            <div class="container masking">
+                <div class="mask lingkar" ></div>
+                <img src="<?= $_SESSION['users']['profile']; ?>" alt="Profil" class="gambar-profil rounded-circle img-fluid"/>
+            </div>
             
         </div>
         <h3>Hv Fun, Admin... 🤩</h3>

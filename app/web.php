@@ -16,6 +16,10 @@ get('/regist', function() {
     $homeController = new HomeController();
     $homeController->regist();
 });
+post('/regist', function() {
+    $homeController = new HomeController();
+    $homeController->daftar();
+});
 
 
 
