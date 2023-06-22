@@ -9,6 +9,17 @@ get('/', function() {
     $homeController->index();
 });
 
+
+
+
+get('/regist', function() {
+    $homeController = new HomeController();
+    $homeController->regist();
+});
+
+
+
+
 get('/login', function() {
     $homeController = new HomeController();
     $homeController->login();
@@ -23,10 +34,18 @@ get('/logout', function() {
     $dashboardcontroller->logout();
 });
 
+
+
+
+
 get('/dashboard', function() {
     $dashboardController = new DashboardController();
     $dashboardController->index();
 });
+
+
+
+
 
 get('/404', function() {
     $homeController = new HomeController();

@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container-sm content-align-center mt-5">
         <div class="card mx-auto" style="max-width: 1200px;">
             <div class="row g-0">
                 <div class="col-md-4 rounded-start" style="background-color: #DFDCD4;">
@@ -15,21 +15,20 @@
                                     <label for="username" class="form-label">Username</label>
                                     <input id="username" type="username"
                                         class="form-control" name="username"
-                                        required autocomplete="username" style="max-width: 400px;">
+                                        required autocomplete="username">
                                 </div>
                                 <label for="password" class="form-label">Password</label>
                                 <div class="input-group">
                                     <input id="password" type="password"
                                         class="form-control" name="password"
-                                        required autocomplete="new-password" style="max-width: 375px;">
-                                    <button class="btn btn-outline-secondary" type="button" id="button-addon2"
+                                        required autocomplete="new-password">
+                                    <button class="btn btn-outline-secondary" type="button" id="mataPassword"
                                         onclick="showPassword()">
-                                        <i class="bi bi-eye"></i>
+                                        <i class="fa-solid fa-eye"></i>
                                     </button>
-
                                 </div>
                                 <div>
-                                    <button type="submit" class="btn btn-outline-success">Login</button>
+                                    <button type="submit" class="btn btn-outline-success mt-3">Login</button>
                                 </div>
                             </form>
                         </p>
@@ -37,6 +36,19 @@
 
                         <p class="card-text"><small class="text-body-secondary">Belum punya akun? &dash; <a
                                     href="/regist" class="lnk">Daftar!</a></small></p>
+                        
+                                    <?php if(isset($_SESSION['error']) && $_SESSION['error']){ ?>
+                                    <div class="alert alert-danger d-flex align-items-center mt-2 ms-auto me-auto" role="alert" style="max-width: 360px; height: 35px;">
+                                        <i class="fa-solid fa-triangle-exclamation me-3"></i>
+                                        <div class="">
+                                            <small>Username dan Password tidak sesuai!</small>
+                                        </div>
+                                        <button type="button" class="btn btn-sm" data-bs-dismiss="alert" aria-label="Close">
+                                                <i class="fa-solid fa-xmark"></i>
+                                            </button>
+                                    </div>
+                                <?php }; unset($_SESSION['error']); ?>
+                        
                         <p class="card-text text-end"><small class="text-body-secondary"><a href="/lupaaa">Lupa
                                     Password</a></small>
                         </p>
@@ -48,13 +60,13 @@
 
     <script>
         function showPassword() {
-            var x = document.getElementById("password");
-            if (x.type === "password") {
-                x.type = "text";
-                document.getElementById("button-addon2").innerHTML = '<i class="bi bi-eye-slash"></i>';
+            var inputan = document.getElementById("password");
+            if (inputan.type === "password") {
+                inputan.type = "text";
+                document.getElementById("mataPassword").innerHTML = '<i class="fa-solid fa-eye-slash"></i>';
             } else {
-                x.type = "password";
-                document.getElementById("button-addon2").innerHTML = '<i class="bi bi-eye"></i>';
+                inputan.type = "password";
+                document.getElementById("mataPassword").innerHTML = '<i class="fa-solid fa-eye"></i>';
             }
         }
     </script>

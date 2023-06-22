@@ -21,6 +21,12 @@ class HomeController
         include dirname(__FILE__) . '/../views/layout/app.php';
     }
 
+    public function regist(){
+        $content = dirname(__FILE__) . '/../views/auth/regist.php';
+        $judul = 'Daftar Akun';
+        include dirname(__FILE__) . '/../views/layout/app.php';
+    }
+
     public function login()
     {
         $content = dirname(__FILE__) . '/../views/auth/login.php';
@@ -38,22 +44,16 @@ class HomeController
         $stmt->execute([':username' => $username]);
         $result = $stmt->fetch();
         
-        if ($result) {
-            $user = new User($result['username'], $result['nama_pengguna'], $result['profile_path'],$result['password'], $result['roles']);
-            if (password_verify($password, $user->toArray()['password'])) {
-                // ini buat set session dari hasil login
-                $_SESSION['users'] = $user->toArray();
-                header('Location: /dashboard');
-            } else {
-                header('Location: /login');
-            }
+        $user = new User($result['username'], $result['nama_pengguna'], $result['profile_path'],$result['password'], $result['roles']);
+        if (password_verify($password, $user->toArray()['password'])) {
+            // ini buat set session dari hasil login
+            $_SESSION['users'] = $user->toArray();
+            $_SESSION['error'] = false;
+            header('Location: /dashboard');
         } else {
+            $_SESSION['error'] = true;
             header('Location: /login');
         }
-
-
-
-        
     }
 
 

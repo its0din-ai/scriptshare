@@ -12,7 +12,7 @@
 
 <body data-bs-theme="dark">
     <nav class="navbar sticky-top navbar-expand-md bg-body-tertiary">
-        <div class="container-fluid mx-sm-5">
+        <div class="container-sm content-align-center">
             <a class="navbar-brand" href="/"><img src="./public/img/ss.png" width="50px" /></a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -22,28 +22,21 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto me-auto">
-                    <li class="nav-item">
+                <ul class="navbar-nav me-auto ms-auto">
+                    <li class="nav-item me-auto">
                         <a class="nav-link" href="/#">Home</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item me-auto">
                         <a class="nav-link" href="/#about">About</a>
                     </li>
-                </ul>
-                <ul class="navbar-nav d-flex me-3">
                     <?php
                     $adaSesiLogin = isset($_SESSION['users']);
                     if ($adaSesiLogin) {
-                        echo '<li class="nav-item">
-                                <a href="/dashboard" class="btn btn-sm btn-outline-info">Dashboard</a>
-                            </li>';
-                    }else{
-                        echo '<li class="nav-item">
-                                
-                            </li>';
+                        echo '<li class="nav-item me-auto">
+                                    <a class="nav-link" href="/dashboard">Dashboard</a>
+                                </li>';
                     }
                     ?>
-                        
                 </ul>
                 <ul class="navbar-nav d-flex">
                     <?php
@@ -58,10 +51,7 @@
                             </li>';
                     }
                     ?>
-                        
                 </ul>
-
-
             </div>
         </div>
     </nav>
