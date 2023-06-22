@@ -39,11 +39,10 @@ class HomeController
         $result = $stmt->fetch();
         
         if ($result) {
-            $user = new User($result['username'], $result['nama_pengguna'], $result['password'], $result['roles']);
-            if (password_verify($password, $user->getPasswordDB())) {
-                // save only username, and roles on session
-                $_SESSION['users'] = $user->getUsername();
-                $_SESSION['roles'] = $user->getRoles();
+            $user = new User($result['username'], $result['nama_pengguna'], $result['profile_path'],$result['password'], $result['roles']);
+            if (password_verify($password, $user->toArray()['password'])) {
+                // ini buat set session dari hasil login
+                $_SESSION['users'] = $user->toArray();
                 header('Location: /dashboard');
             } else {
                 header('Location: /login');

@@ -30,10 +30,25 @@
                         <a class="nav-link" href="/#about">About</a>
                     </li>
                 </ul>
+                <ul class="navbar-nav d-flex me-3">
+                    <?php
+                    $adaSesiLogin = isset($_SESSION['users']);
+                    if ($adaSesiLogin) {
+                        echo '<li class="nav-item">
+                                <a href="/dashboard" class="btn btn-sm btn-outline-info">Dashboard</a>
+                            </li>';
+                    }else{
+                        echo '<li class="nav-item">
+                                
+                            </li>';
+                    }
+                    ?>
+                        
+                </ul>
                 <ul class="navbar-nav d-flex">
                     <?php
-                    $isLoggedIn = isset($_SESSION['roles']);
-                    if ($isLoggedIn) {
+                    $adaSesiLogin = isset($_SESSION['users']);
+                    if ($adaSesiLogin) {
                         echo '<li class="nav-item">
                                 <a href="/logout" class="btn btn-sm btn-outline-danger">Logout</a>
                             </li>';

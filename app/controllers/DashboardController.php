@@ -6,12 +6,12 @@ class DashboardController
     public function index()
     {
         if(isset($_SESSION)){
-            if($_SESSION['roles'] == 'admin'){
+            if($_SESSION['users']['roles'] == 'admin'){
                 $content = dirname(__FILE__) . '/../views/home/dashboard-adm.php';
                 $judul = 'Dashboard Admin';
                 include dirname(__FILE__) . '/../views/layout/app.php';
             }
-            else if($_SESSION['roles'] == 'users'){
+            else if($_SESSION['users']['roles'] == 'users'){
                 $content = dirname(__FILE__) . '/../views/home/dashboard-usr.php';
                 $judul = 'Dashboard Users';
                 include dirname(__FILE__) . '/../views/layout/app.php';

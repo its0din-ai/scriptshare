@@ -2,35 +2,34 @@
 namespace App\Models;
 
 require './app/func/DB.php';
-use App\Func\DB;
 
 class User
 {
     private $username;
     private $nama_pengguna;
+    private $profile;
     private $password;
     private $roles;
 
-    public function __construct($username, $nama_pengguna, $password, $roles)
+    public function __construct($username, $nama_pengguna, $profile, $password, $roles)
     {
         $this->username = $username;
         $this->nama_pengguna = $nama_pengguna;
+        $this->profile = $profile;
         $this->password = $password;
         $this->roles = $roles;
     }
 
-    public function getUsername()
+    // create return of array from the models
+    public function toArray()
     {
-        return $this->username;
-    }
-
-    public function getPasswordDB()
-    {
-        return $this->password;
-    }
-
-    public function getRoles(){
-        return $this->roles;
+        return [
+            'username' => $this->username,
+            'nama_pengguna' => $this->nama_pengguna,
+            'profile' => $this->profile,
+            'password' => $this->password,
+            'roles' => $this->roles
+        ];
     }
 
 }

@@ -3,6 +3,7 @@ namespace App\Func;
 
 use PDO;
 use PDOException;
+
 require './app/func/envget.php';
 
 class DB
