@@ -3,7 +3,7 @@ namespace App\Models;
 
 require './app/func/DB.php';
 
-class User
+class Script
 {
     private $id;
     private $judul_script;
@@ -16,6 +16,15 @@ class User
         $this->judul_script = $judul_script;
         $this->slug_script = $slug_script;
         $this->konten_script = $konten_script;
+    }
+
+    public function toArray(){
+        return [
+            'id' => $this->id,
+            'judul_script' => $this->judul_script,
+            'slug_script' => $this->slug_script,
+            'konten_script' => $this->konten_script
+        ];
     }
 
     public function getid()

@@ -72,7 +72,15 @@ get('/dashboard', function() {
     $dashboardController->index();
 });
 
+get('/dashboard/script', function() {
+    $dashboardController = new DashboardController();
+    $dashboardController->scriptIndex();
+});
 
+get('/dashboard/short', function() {
+    $dashboardController = new DashboardController();
+    $dashboardController->shortIndex();
+});
 
 
 

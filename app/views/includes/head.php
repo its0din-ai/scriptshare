@@ -14,7 +14,7 @@
 <body data-bs-theme="dark">
     <nav class="navbar sticky-top navbar-expand-md bg-body-tertiary">
         <div class="container-sm content-align-center">
-            <a class="navbar-brand" href="/"><img src="./public/img/ss.png" width="50px" /></a>
+            <a class="navbar-brand" href="/"><img src="/public/img/ss.png" width="50px" /></a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -30,12 +30,20 @@
                     <li class="nav-item me-auto">
                         <a class="nav-link" href="/#about">About</a>
                     </li>
+                    
                     <?php
                     $adaSesiLogin = isset($_SESSION['users']);
                     if ($adaSesiLogin) {
-                        echo '<li class="nav-item me-auto">
-                                    <a class="nav-link" href="/dashboard">Dashboard</a>
-                                </li>';
+                        echo '<li class="nav-item dropdown me-auto mt-auto mb-auto">
+                        <button class="btn btn-dark btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            Dashboard
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/dashboard">Home</a></li>
+                            <li><a class="dropdown-item" href="/dashboard/script">Share a Scripts</a></li>
+                            <li><a class="dropdown-item" href="/dashboard/short">Short a Links</a></li>
+                        </ul>
+                        </li>';
                     }
                     ?>
                 </ul>
