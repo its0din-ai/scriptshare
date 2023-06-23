@@ -1,4 +1,4 @@
-<section id="home" class="mt-5">
+<section id="home" class="">
     <div class="container ">
         <div class="card mx-auto" style="max-width: 540px;">
             <div class="row g-0">

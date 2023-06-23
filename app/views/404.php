@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-sm">
     <div class="card mx-auto mt-5">
         <div class="card-body">
             <h5 class="card-title text-center">404 - NOT FOUND</h5>

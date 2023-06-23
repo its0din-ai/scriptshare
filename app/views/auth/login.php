@@ -1,4 +1,4 @@
-<div class="container-sm content-align-center mt-5">
+<div class="container-sm content-align-center animate__animated animate__bounceIn">
         <div class="card mx-auto" style="max-width: 1200px;">
             <div class="row g-0">
                 <div class="col-md-4 rounded-start" style="background-color: #DFDCD4;">
