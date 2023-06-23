@@ -20,7 +20,24 @@ post('/regist', function() {
     $homeController = new HomeController();
     $homeController->daftar();
 });
+post('/cekuser', function($request, $response) {
+    // Retrieve the username from the request body
+    // $data = $request->getParsedBody();
+    $username = $_POST['username'];
 
+    // Execute the cekUser() function
+    $homeController = new HomeController();
+    $isAvailable = $homeController->cekUsername($username);
+
+    // Prepare the response based on the availability
+    if ($isAvailable) {
+        echo 'available';
+    } else {
+        echo 'unavailable';
+    }
+
+    return $response;
+});
 
 
 

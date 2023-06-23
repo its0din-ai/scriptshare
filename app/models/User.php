@@ -2,6 +2,7 @@
 namespace App\Models;
 
 require './app/func/DB.php';
+use App\Func\DB;
 
 class User
 {
@@ -30,6 +31,25 @@ class User
             'password' => $this->password,
             'roles' => $this->roles
         ];
+    }
+
+    public function insertUser($username, $nama_pengguna, $profile_path, $password, $roles){
+        $db = DB::getInstance();
+        $stmt = $db->prepare('INSERT INTO users (username, nama_pengguna, profile_path, password, roles) VALUES (:username, :nama_pengguna, :profile_path, :password, :roles)');
+        $stmt->execute([':username' => $username, ':nama_pengguna' => $nama_pengguna, ':profile_path' => $profile_path, ':password' => password_hash($password, PASSWORD_DEFAULT), ':roles' => $roles]);
+    }
+
+    public function cekUsername($data){
+        $db = DB::getInstance();
+        $query = "SELECT * FROM users WHERE username = '$data'";
+        $stmt = $db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->fetch();
+        if ($result) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }

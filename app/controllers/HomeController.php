@@ -27,34 +27,51 @@ class HomeController
         include dirname(__FILE__) . '/../views/layout/app.php';
     }
 
+    public function cekUsername($data){
+        $db = DB::getInstance();
+        $query = "SELECT * FROM users WHERE username = '$data'";
+        $stmt = $db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->fetch();
+        if ($result) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function daftar()
     {
         if(isset($_FILES['foto'])){
-            $errors= array();
-            $file_name = $_FILES['foto']['name'];
-            $file_size =$_FILES['foto']['size'];
-            $file_tmp =$_FILES['foto']['tmp_name'];
-            $file_type=$_FILES['foto']['type'];
-            
-            $extensions= array("image/jpeg","image/jpg","image/png");
-            if(in_array($file_type,$extensions)=== false){
-                $errors[]="extension not allowed, please choose a JPEG or PNG file.";
-            }
-            
-            if($file_size > 2097152){
-                $errors[]='File size must be excately 2 MB';
+            var_dump($_FILES['foto']);
+            if($_FILES['foto']['name'] != ""){
+                $errors= array();
+                $file_name = $_FILES['foto']['name'];
+                $file_size =$_FILES['foto']['size'];
+                $file_tmp =$_FILES['foto']['tmp_name'];
+                $file_type=$_FILES['foto']['type'];
+                
+                $extensions= array("image/jpeg","image/jpg","image/png", "");
+                if(in_array($file_type,$extensions)=== false){
+                    $errors[]="Maaf, hanya file JPEG, JPG, dan PNG saja";
+                }
+                
+                if($file_size > 2097152){
+                    $errors[]='File size must be excately 2 MB';
+                }
+                
+                if(empty($errors) == true){
+                    $file_name = md5_file($file_tmp) . '.' . pathinfo($file_name, PATHINFO_EXTENSION);
+                    move_uploaded_file($file_tmp,"./public/img/profile/".$file_name);
+                }else{
+                    print_r($errors);
+                }
+            } else{
+                $file_name = null;
             }
 
-            // change filename to md5sum
-            
-            if(empty($errors)==true){
-                $file_name = md5_file($file_tmp) . '.' . pathinfo($file_name, PATHINFO_EXTENSION);
-                move_uploaded_file($file_tmp,"./public/img/profile/".$file_name);
-                echo "Success";
-            }else{
-                print_r($errors);
-            }
         }
+
         $username = $_POST['username'];
         $nama_pengguna = $_POST['nama_pengguna'];
         $password = $_POST['password'];
@@ -65,14 +82,15 @@ class HomeController
             $profile_path = '/public/img/profile/' . $file_name;
         }
 
-        $db = DB::getInstance();
-        $stmt = $db->prepare('INSERT INTO users (username, nama_pengguna, profile_path, password, roles) VALUES (:username, :nama_pengguna, :profile_path, :password, :roles)');
-        $stmt->execute([':username' => $username, ':nama_pengguna' => $nama_pengguna, ':profile_path' => $profile_path, ':password' => password_hash($password, PASSWORD_DEFAULT), ':roles' => $roles]);
-        
-        $_SESSION['success'] = true;
-        header('Location: /login');
-
-
+        $user = new User($username, $nama_pengguna, $profile_path, $password, $roles);
+        if($user->cekUsername($username)){
+            $_SESSION['error'] = 'username_duplikat';
+            header('Location: /regist');
+        }else{
+            $user->insertUser($username, $nama_pengguna, $profile_path, $password, $roles);
+            $_SESSION['success'] = true;
+            header('Location: /login');
+        }
     }
 
     public function login()

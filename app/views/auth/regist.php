@@ -12,10 +12,12 @@
                         <p class="card-text">
                             <form method="POST" enctype="multipart/form-data">
                                 <div class="mb-3">
-                                    <label for="username" class="form-label">Username</label>
+                                    <label for="username" class="form-label">Username <small>(<span class="text-danger">*</span>)</small></label>
                                     <input id="username" type="username"
                                         class="form-control" name="username"
                                         required autocomplete="username">
+                                    <small><span id="cekUser" class="text-danger"></span></small>
+                                        
                                 </div>
                                 <div class="mb-3">
                                     <label for="nama_pengguna" class="form-label">Nama Lengkap</label>
@@ -24,7 +26,7 @@
                                         required autocomplete="nama_pengguna">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="foto" class="form-label">Upload Foto Profil</label>
+                                    <label for="foto" class="form-label">Upload Foto Profil <small>(Opsional)</small></label>
                                     <input class="form-control" type="file" accept=".jpg,.gif,.png" id="foto" name="foto">
                                 </div>
                                 <label for="password" class="form-label">Password</label>
@@ -62,5 +64,30 @@
                 inputan.type = "password";
                 document.getElementById("mataPassword").innerHTML = '<i class="fa-solid fa-eye"></i>';
             }
+        }
+
+        $(document).ready(function() {
+            $('#username').on('input', function() {
+                var username = $(this).val();
+                checkUsernameAvailability(username);
+            });
+        });
+
+        function checkUsernameAvailability(username) {
+        $.ajax({
+            url: '/cekuser', // Replace with the server-side script URL
+            method: 'POST',
+            data: { username: username },
+            success: function(response) {
+            if (response === 'available') {
+                $('#cekUser').text('Maaf, Username sudah digunakan');
+            } else {
+                $('#cekUser').text('');
+            }
+            },
+            error: function() {
+            $('#cekUser').text('Error occurred while checking username availability');
+            }
+        });
         }
     </script>

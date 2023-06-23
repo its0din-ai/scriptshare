@@ -5,7 +5,7 @@ class DashboardController
 {
     public function index()
     {
-        if(isset($_SESSION)){
+        if(isset($_SESSION['users'])){
             if($_SESSION['users']['roles'] == 'admin'){
                 $content = dirname(__FILE__) . '/../views/home/dashboard-adm.php';
                 $judul = 'Dashboard Admin';
