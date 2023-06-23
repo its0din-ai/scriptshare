@@ -43,3 +43,12 @@ a {
   height: 150px;
   position: relative;
 }
+
+.hover-anim{
+  transition: all 0.3s ease-in-out;
+
+}
+
+.hover-anim:hover{
+  transform: scale(1.1);
+}
