@@ -45,9 +45,6 @@
                             </form>
                         </p>
                         <p class="card-text"><small class="text-body-secondary">Sudah punya akun? &dash; <a href="/login" class="lnk">Login!</a></small></p>
-                        <p class="card-text text-end"><small class="text-body-secondary"><a href="/lupaaa">Lupa
-                                    Password</a></small>
-                        </p>
                     </div>
                 </div>
             </div>

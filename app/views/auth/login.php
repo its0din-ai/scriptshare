@@ -51,9 +51,6 @@
                             <?php } ?>
                         </p>
                         <p class="card-text"><small class="text-body-secondary">Belum punya akun? &dash; <a href="/regist" class="lnk">Daftar!</a></small></p>
-                        
-                        <p class="card-text text-end"><small class="text-body-secondary"><a href="/lupaaa">Lupa Password</a></small>
-                        </p>
                     </div>
                 </div>
             </div>
