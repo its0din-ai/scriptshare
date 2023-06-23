@@ -83,14 +83,9 @@ class HomeController
         }
 
         $user = new User($username, $nama_pengguna, $profile_path, $password, $roles);
-        if($user->cekUsername($username)){
-            $_SESSION['error'] = 'username_duplikat';
-            header('Location: /regist');
-        }else{
-            $user->insertUser($username, $nama_pengguna, $profile_path, $password, $roles);
-            $_SESSION['success'] = true;
-            header('Location: /login');
-        }
+        $user->insertUser($username, $nama_pengguna, $profile_path, $password, $roles);
+        $_SESSION['success'] = true;
+        header('Location: /login');
     }
 
     public function login()
@@ -100,26 +95,27 @@ class HomeController
         include dirname(__FILE__) . '/../views/layout/app.php';
     }
 
-    public function ceker()
+    public function loginCeker()
     {
+        $status = false;
         $username = $_POST['username'];
         $password = $_POST['password'];
         
         $db = DB::getInstance();
         $stmt = $db->prepare('SELECT * FROM users WHERE username = :username');
         $stmt->execute([':username' => $username]);
-        $result = $stmt->fetch();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
         
-        $user = new User($result['username'], $result['nama_pengguna'], $result['profile_path'],$result['password'], $result['roles']);
-        if (password_verify($password, $user->toArray()['password'])) {
-            // ini buat set session dari hasil login
+        if ($result && password_verify($password, $result['password'])) {
+            $user = new User($result['username'], $result['nama_pengguna'], $result['profile_path'], $result['password'], $result['roles']);
+            $status = true;
             $_SESSION['users'] = $user->toArray();
-            $_SESSION['error'] = false;
             header('Location: /dashboard');
         } else {
-            $_SESSION['error'] = true;
-            header('Location: /login');
+            $status = false;
         }
+
+        return $status;
     }
 
 

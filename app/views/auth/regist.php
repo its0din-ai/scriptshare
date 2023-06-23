@@ -15,9 +15,7 @@
                                     <label for="username" class="form-label">Username <small>(<span class="text-danger">*</span>)</small></label>
                                     <input id="username" type="username"
                                         class="form-control" name="username"
-                                        required autocomplete="username">
-                                    <small><span id="cekUser" class="text-danger"></span></small>
-                                        
+                                        required autocomplete="username" oninput="this.value = this.value.toLowerCase();">
                                 </div>
                                 <div class="mb-3">
                                     <label for="nama_pengguna" class="form-label">Nama Lengkap</label>
@@ -26,8 +24,8 @@
                                         required autocomplete="nama_pengguna">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="foto" class="form-label">Upload Foto Profil <small>(Opsional)</small></label>
-                                    <input class="form-control" type="file" accept=".jpg,.gif,.png" id="foto" name="foto">
+                                    <label for="foto" class="form-label">Foto Profil <small>(Opsional)</small></label>
+                                    <input class="form-control" type="file" accept=".jpg,.jpeg,.png" id="foto" name="foto">
                                 </div>
                                 <label for="password" class="form-label">Password</label>
                                 <div class="input-group">
@@ -40,11 +38,13 @@
                                     </button>
 
                                 </div>
-                                <div>
-                                    <button type="submit" class="btn btn-outline-success mt-3">Daftar</button>
+                                <div class="mt-3">
+                                    <small><span id="cekUser" class="text-danger"></span></small>
+                                    <button type="submit" id="tombol-daftar" class="btn btn-outline-success">Daftar</button>
                                 </div>
                             </form>
                         </p>
+                        <p class="card-text"><small class="text-body-secondary">Sudah punya akun? &dash; <a href="/login" class="lnk">Login!</a></small></p>
                         <p class="card-text text-end"><small class="text-body-secondary"><a href="/lupaaa">Lupa
                                     Password</a></small>
                         </p>
@@ -75,18 +75,20 @@
 
         function checkUsernameAvailability(username) {
         $.ajax({
-            url: '/cekuser', // Replace with the server-side script URL
+            url: '/cekuser',
             method: 'POST',
             data: { username: username },
             success: function(response) {
-            if (response === 'available') {
+            if (response === 'exist') {
                 $('#cekUser').text('Maaf, Username sudah digunakan');
+                $('#tombol-daftar').addClass('d-none');
             } else {
                 $('#cekUser').text('');
+                $('#tombol-daftar').removeClass('d-none');
             }
             },
             error: function() {
-            $('#cekUser').text('Error occurred while checking username availability');
+                console.error('ERROR 500');
             }
         });
         }

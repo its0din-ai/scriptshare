@@ -18,8 +18,8 @@
                                             <small>Anda berhasil mendaftar, silahkan Masuk!</small>
                                         </div>
                                         <button type="button" class="btn btn-sm" data-bs-dismiss="alert" aria-label="Close">
-                                                <i class="fa-solid fa-xmark"></i>
-                                            </button>
+                                            <i class="fa-solid fa-xmark"></i>
+                                        </button>
                                     </div>
                                 <?php }; unset($_SESSION['success']); ?>
                                 <div class="mb-3">
@@ -39,29 +39,20 @@
                                     </button>
                                 </div>
                                 <div>
-                                    <button type="submit" class="btn btn-outline-success mt-3">Login</button>
+                                    <button type="submit" onclick="cekAkun()" class="btn btn-outline-success mt-3">Login</button>
                                 </div>
                             </form>
+                            <?php
+                                if(isset($_SESSION['stats']) && $_SESSION['stats'] == "salah"){?>
+                                <div id="handlingSalah" class="text-danger mt-1">
+                                    <i class="fa-solid fa-triangle-exclamation"></i>
+                                    <small>Username dan Password salah!</small>
+                                </div>
+                            <?php } ?>
                         </p>
-
-
-                        <p class="card-text"><small class="text-body-secondary">Belum punya akun? &dash; <a
-                                    href="/regist" class="lnk">Daftar!</a></small></p>
+                        <p class="card-text"><small class="text-body-secondary">Belum punya akun? &dash; <a href="/regist" class="lnk">Daftar!</a></small></p>
                         
-                                <?php if(isset($_SESSION['error']) && $_SESSION['error']){ ?>
-                                    <div class="alert alert-danger d-flex align-items-center mt-2 ms-auto me-auto" role="alert" style="max-width: 360px; height: 35px;">
-                                        <i class="fa-solid fa-triangle-exclamation me-3"></i>
-                                        <div class="">
-                                            <small>Username dan Password tidak sesuai!</small>
-                                        </div>
-                                        <button type="button" class="btn btn-sm" data-bs-dismiss="alert" aria-label="Close">
-                                                <i class="fa-solid fa-xmark"></i>
-                                            </button>
-                                    </div>
-                                <?php }; unset($_SESSION['error']); ?>
-                        
-                        <p class="card-text text-end"><small class="text-body-secondary"><a href="/lupaaa">Lupa
-                                    Password</a></small>
+                        <p class="card-text text-end"><small class="text-body-secondary"><a href="/lupaaa">Lupa Password</a></small>
                         </p>
                     </div>
                 </div>
