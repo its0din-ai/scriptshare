@@ -82,6 +82,10 @@ get('/dashboard/short', function() {
     $dashboardController->shortIndex();
 });
 
+// Note:
+// Route dari /dashboard/* adalah route buat manajemen
+// Route dari /sc/:slug dan /ln/:slug adalah route buat nampilin konten
+
 
 
 
