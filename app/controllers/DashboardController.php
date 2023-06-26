@@ -31,11 +31,16 @@ class DashboardController
         if(isset($_SESSION['users'])){
                 $content = dirname(__FILE__) . '/../views/dashboard/script/index.php';
                 $judul = 'Script Sharing';
+                $scriptController = new ScriptController();
+                $script = $scriptController->getPost();
+                
                 include dirname(__FILE__) . '/../views/layout/app.php';
         }else{
             header('Location: /login');
         }
     }
+
+
 
     public function shortIndex(){
         if(isset($_SESSION['users'])){

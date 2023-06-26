@@ -2,6 +2,8 @@
 
 require './app/controllers/HomeController.php';
 require './app/controllers/DashboardController.php';
+require './app/controllers/ScriptController.php';
+
 require './app/func/route.php';
 
 // Rute GET Biasa
@@ -75,6 +77,22 @@ get('/dashboard', function() {
 get('/dashboard/script', function() {
     $dashboardController = new DashboardController();
     $dashboardController->scriptIndex();
+});
+post('/dashboard/script', function() {
+    if($_POST['judul'] == ""){
+        $data['judul_script'] = "Tidak ada Judul";
+        $data['konten_script'] = $_POST['konten'];
+        $data['id_user'] = $_SESSION['users']['username'];
+        $data['visibility'] = $_POST['visibility'];
+    }else{
+        $data['judul_script'] = $_POST['judul'];
+        $data['konten_script'] = $_POST['konten'];
+        $data['id_user'] = $_SESSION['users']['username'];
+        $data['visibility'] = $_POST['visibility'];
+    }
+    
+    $scriptController = new ScriptController();
+    $scriptController->upload($data);
 });
 
 get('/dashboard/short', function() {

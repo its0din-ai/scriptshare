@@ -1,16 +1,62 @@
 <div class="container-sm ">
-    <div class="card mx-auto" style="max-width: 540px;">
-        <div class="row g-0">
-            <div class="col-md-4">
-            <img src="/public/img/brand-lg.png" class="img-fluid rounded-start" alt="...">
+    <div class="me-auto ms-auto w-50">
+        <form method="POST">
+            <div class="mb-3">
+                <label for="judul" class="form-label">Judul</label>
+                <input type="text" class="form-control" id="judul" placeholder="Tidak ada Judul" name="judul">
             </div>
-            <div class="col-md-8">
+            <div class="mb-3">
+                <label for="konten" class="form-label">Konten</label>
+                <textarea class="form-control" id="konten" rows="7" name="konten"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="visibility" class="form-label">Visibility</label>
+                <select class="form-select" aria-label="Private" name="visibility">
+                    <option value="private">Private</option>
+                    <option value="public">Public</option>
+                </select>
+            <!-- Button -->
+            <div class="hvr-bounce-in d-grid gap-2 w-25 me-auto ms-auto mt-3">
+                <button type="submit" class="btn btn-sm btn-light" name="submit">Share!</button>
+            </div>
+        </form>
+    </div>
+    <div class="mx-auto mt-5 pt-5">
+        <div>
+            <a href="/dashboard/script/personal" class="link-success"><h6>Konten Personal</h6></a>
+            <h6>Konten Publik</h6>
+        </div>
+        <hr style="max-width: 768px;">
+        <?php
+            foreach($script as $data){
+                $dateTime = new DateTime($data['tanggal']);
+                $formatter = new IntlDateFormatter('id_ID', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
+                $formatter->setPattern('d MMMM yyyy, HH:mm');
+                $tanggal = $formatter->format($dateTime);
+                
+                echo '
+                <div class="card mt-3" style="max-width: 768px;">
+                    <div class="card-body ">
+                        <h4 class="card-title mb-0">'.$data['judul_script'].'</h4>
+                        <small class="card-text disabled mt-0"><p><em>Pada, '. $tanggal .'</em></p></small>
+                        <small class="card-text disabled mt-0"><p><em>Uploader:: '. $data['uploader'] .'</em></p></small>
+                        <hr>
+                        <p class="card-text">'.$data['konten_script'].'</p>
+                        <br>
+                        <a href="/script/'.$data['slug_script'].'" class="hvr-bounce-in link-warning" style="font-size: 15px;"><small>Selengkapnya</small></a>
+                    </div>
+                </div>
+                ';
+            }
+        ?>
+        <!-- <div class="card mt-3" style="max-width: 768px;">
             <div class="card-body">
-                <h5 class="card-title">INI NANTI INDEX SCRIPT</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                <h5 class="card-title">Judul</h5>
+                <p class="card-text">Konten</p>
+                <a href="#" class="hvr-bounce-in link-warning">Selengkapnya</a>
             </div>
-            </div>
-        </div>
-        </div>
+        </div> -->
+        
+
+    </div>
 </div>
