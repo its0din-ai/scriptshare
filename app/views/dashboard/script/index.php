@@ -49,14 +49,5 @@
                 ';
             }
         ?>
-        <!-- <div class="card mt-3" style="max-width: 768px;">
-            <div class="card-body">
-                <h5 class="card-title">Judul</h5>
-                <p class="card-text">Konten</p>
-                <a href="#" class="hvr-bounce-in link-warning">Selengkapnya</a>
-            </div>
-        </div> -->
-        
-
     </div>
 </div>

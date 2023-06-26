@@ -41,4 +41,15 @@ class ScriptController
         return $result;
     }
 
+    public function getPrivatePost(){
+        $db = DB::getInstance();
+        $query = "SELECT id, uploader, judul_script, slug_script, SUBSTRING(konten_script, 1, 250) AS konten_script, tanggal FROM scriptdb WHERE visibility = 'Private' AND uploader = :username ORDER BY tanggal DESC";
+        $stmt = $db->prepare($query);
+        $stmt->bindParam(':username', $_SESSION['users']['username']);
+        $stmt->execute();
+        $prv = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $prv;
+    }
+
 }
