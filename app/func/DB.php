@@ -16,7 +16,7 @@ class DB
         
         $host = envget('DB_HOST');
         $port = envget('DB_PORT');
-        $dbname = envget('DB_NAME');
+        $dbname = envget('DB_DATABASE');
         $username = envget('DB_USERNAME');
         $password = envget('DB_PASSWORD');
 
