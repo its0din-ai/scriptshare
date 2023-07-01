@@ -40,10 +40,51 @@ class HomeController
         }
     }
 
+    protected function crop(){
+        // $image = imagecreatefromjpeg($_FILES['foto']['tmp_name']);
+        // $filename = $_FILES['foto']['name'];
+        // $width = imagesx($image);
+        // $height = imagesy($image);
+        // $min = min($width, $height);
+        // $x = ($width - $min) / 2;
+        // $y = ($height - $min) / 2;
+        // $image_cropped = imagecrop($image, ['x' => $x, 'y' => $y, 'width' => $min, 'height' => $min]);
+        // imagejpeg($image_cropped, $filename, 100);
+        // return $filename;
+        $uploadedImagePath = 'path/to/uploaded/image.jpg';
+
+        // Load the uploaded image
+        $sourceImage = imagecreatefromjpeg($uploadedImagePath);
+
+        // Get the dimensions of the source image
+        $sourceWidth = imagesx($sourceImage);
+        $sourceHeight = imagesy($sourceImage);
+
+        // Determine the size of the square crop
+        $size = min($sourceWidth, $sourceHeight);
+
+        // Create a new square image canvas
+        $croppedImage = imagecreatetruecolor($size, $size);
+
+        // Calculate the offset to crop from the top
+        $offsetX = 0;
+        $offsetY = 0;
+
+        // Crop the image from the top
+        imagecopy($croppedImage, $sourceImage, 0, 0, $offsetX, $offsetY, $size, $size);
+
+        // Output the cropped image to a file or display it directly
+        $croppedImagePath = 'path/to/save/cropped/image.jpg';
+        imagejpeg($croppedImage, $croppedImagePath);
+
+        // Free up memory by destroying the images
+        imagedestroy($sourceImage);
+        imagedestroy($croppedImage);
+    }
+
     public function daftar()
     {
         if(isset($_FILES['foto'])){
-            var_dump($_FILES['foto']);
             if($_FILES['foto']['name'] != ""){
                 $errors= array();
                 $file_name = $_FILES['foto']['name'];

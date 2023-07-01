@@ -60,11 +60,11 @@
                     <?php
                     $adaSesiLogin = isset($_SESSION['users']);
                     if ($adaSesiLogin) {
-                        echo '<li class="nav-item">
+                        echo '<li class="nav-item mt-md-auto mt-sm-2">
                                 <a href="/logout" class="btn btn-sm btn-outline-danger">Logout</a>
                             </li>';
                     }else{
-                        echo '<li class="nav-item">
+                        echo '<li class="nav-item mt-md-auto mt-sm-2">
                                 <a href="/login" class="btn btn-sm btn-outline-light">Login</a>
                             </li>';
                     }
