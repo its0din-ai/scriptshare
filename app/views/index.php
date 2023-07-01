@@ -1,5 +1,6 @@
 <section id="home" class="">
-    <div class="container ">
+    <div class="container-sm ">
+        <!-- GANTI HOME MULAI DARI SINI-->
         <div class="card mx-auto" style="max-width: 540px;">
             <div class="row g-0">
                 <div class="col-md-4">
@@ -15,13 +16,15 @@
                 </div>
             </div>
         </div>
+        <!-- SAMPAI SINI-->
     </div>
 </section>
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 <section id="about">
-    <div class="container">
+    <div class="container-sm ">
+        <!-- GANTI ABOUT MULAI DARI SINI-->
         <div class="card mx-auto" style="max-width: 540px;">
             <div class="row g-0">
                 <div class="col-md-4">
@@ -37,5 +40,6 @@
                 </div>
             </div>
         </div>
+        <!-- SAMPAI SINI-->
     </div>
 </section>
