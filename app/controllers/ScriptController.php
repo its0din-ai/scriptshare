@@ -93,7 +93,7 @@ class ScriptController
         $stmt->bindParam(':slug', $_POST['slug']);
         $stmt->execute();
 
-        header('Location: /dashboard/script');
+        header('Location: /script/' . $_POST['slug']);
     }
     
     public function hapus_script($slug){
@@ -102,7 +102,7 @@ class ScriptController
         $stmt = $db->prepare($query);
         $stmt->execute([':slug' => $slug]);
 
-        header('Location: /dashboard/script');
+        header('Location: /dashboard/script/personal');
     }
 
 }
