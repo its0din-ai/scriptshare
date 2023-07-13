@@ -67,4 +67,42 @@ class ScriptController
         // header('Location: /dashboard/script');
     }
 
+    public function edit_script($slug){
+        $db = DB::getInstance();
+        $query = "SELECT id, uploader, judul_script, script_slug, konten_script, tanggal, visibility, nama_pengguna, profile_path FROM script_db, users WHERE script_slug = :slug AND username = uploader";
+        $stmt = $db->prepare($query);
+        $stmt->execute([':slug' => $slug]);
+        $detail = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        $content = dirname(__FILE__) . '/../views/dashboard/script/edit.php';
+        $judul = "EDIT " . $detail['judul_script'];
+        include dirname(__FILE__) . '/../views/layout/app.php';
+
+        return $detail;
+        // header('Location: /dashboard/script');
+    
+    }
+
+    public function update(){
+        $db = DB::getInstance();
+        $query = "UPDATE script_db SET judul_script = :judul_script, konten_script = :konten_script, visibility = :visibility WHERE script_slug = :slug";
+        $stmt = $db->prepare($query);
+        $stmt->bindParam(':judul_script', $_POST['judul']);
+        $stmt->bindParam(':konten_script', $_POST['konten']);
+        $stmt->bindParam(':visibility', $_POST['visibility']);
+        $stmt->bindParam(':slug', $_POST['slug']);
+        $stmt->execute();
+
+        header('Location: /dashboard/script');
+    }
+    
+    public function hapus_script($slug){
+        $db = DB::getInstance();
+        $query = "DELETE FROM script_db WHERE script_slug = :slug";
+        $stmt = $db->prepare($query);
+        $stmt->execute([':slug' => $slug]);
+
+        header('Location: /dashboard/script');
+    }
+
 }

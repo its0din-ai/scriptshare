@@ -1,5 +1,5 @@
-<div class="container-sm ">
-    <div class="mx-auto mt-5 pt-5 w-md-50">
+<div class="container-sm">
+    <div class="mx-auto w-md-50">
         <div class="">
             <a href="/dashboard/script" class="link link-success"><h6>Tambah Script</h6></a>
             <h6>Script Personal</h6>

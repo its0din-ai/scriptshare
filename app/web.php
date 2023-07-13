@@ -40,6 +40,7 @@ post('/cekuser', function($request, $response) {
 
 
 
+
 // Rute ke fungsi-fungsi Login
 get('/login', function() {
     $homeController = new HomeController();
@@ -100,20 +101,41 @@ get('/dashboard/script/personal', function() {
     $dashboardController->personalIndex();
 });
 
-
 get('/dashboard/short', function() {
     $dashboardController = new DashboardController();
     $dashboardController->shortIndex();
 });
 
-// Note:
-// Route dari /dashboard/* adalah route buat manajemen
-// Route dari /sc/:slug dan /ln/:slug adalah route buat nampilin konten
+// Route untuk handle edit/delete script dan short
 if ($_SERVER['REQUEST_URI'] == '/script' || strpos($_SERVER['REQUEST_URI'], '/script/') === 0) {
     $slug = substr($_SERVER['REQUEST_URI'], 8);
     $scriptController = new ScriptController();
     $scriptController->script($slug);
 }
+else if ($_SERVER['REQUEST_URI'] == '/edit/sc' || strpos($_SERVER['REQUEST_URI'], '/edit/sc/') === 0) {
+    $slug = substr($_SERVER['REQUEST_URI'], 9);
+    $scriptController = new ScriptController();
+    $scriptController->edit_script($slug);
+}
+else if ($_SERVER['REQUEST_URI'] == '/edit/sh' || strpos($_SERVER['REQUEST_URI'], '/edit/sh/') === 0) {
+    $slug = substr($_SERVER['REQUEST_URI'], 9);
+    // edit short
+}
+else if ($_SERVER['REQUEST_URI'] == '/hapus/sh' || strpos($_SERVER['REQUEST_URI'], '/hapus/sh/') === 0) {
+    $slug = substr($_SERVER['REQUEST_URI'], 10);
+    // hapus short
+}
+
+post('/update/sc', function() {
+    $scriptController = new ScriptController();
+    $scriptController->update();
+});
+post('/hapus/sc', function() {
+    $slug = $_POST['slug'];
+    $scriptController = new ScriptController();
+    $scriptController->hapus_script($slug);
+});
+
 
 
 // Handling kalo Not Found
