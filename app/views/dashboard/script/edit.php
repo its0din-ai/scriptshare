@@ -11,7 +11,7 @@
             </div>
             <div class="mb-3">
                 <label for="konten" class="form-label">Konten</label>
-                <textarea class="form-control" id="konten" rows="7" name="konten" value="<?php echo $detail['konten_script']; ?>"></textarea>
+                <textarea class="form-control" id="konten" rows="7" name="konten"><?php echo $detail['konten_script']; ?></textarea>
             </div>
             <div class="mb-3">
                 <label for="visibility" class="form-label">Akses</label>
@@ -22,7 +22,7 @@
             </div>
             <!-- Button -->
             <div class="hvr-bounce-in d-grid gap-2 w-25 me-auto ms-auto mt-3">
-                <button type="submit" class="btn btn-sm btn-light" name="submit">Share!</button>
+                <button type="submit" class="btn btn-sm btn-light" name="submit">Update Data!</button>
             </div>
         </form>
     </div>
