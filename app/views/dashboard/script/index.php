@@ -41,15 +41,13 @@
                         <div class="card-body ">
                             <h4 class="card-title mb-0">'.$data['judul_script'].'</h4>
                             <small class="card-text disabled mt-0"><p><em>Pada, '. $tanggal .'</em></p></small>
-                            <div class="container-sm justify-content-left masking">
-                                <div class="mask lingkar" ></div>
-                                <img src="'.$data['profile_path'].'" alt="Profil" class="gambar-profil rounded-circle img-fluid"/>
-                            </div>
+
                             <small class="card-text disabled mt-0"><p><em>Uploader:: '. $data['nama_pengguna'] .'</em></p></small>
+                            
                             <hr>
-                            <p class="card-text">'.$data['konten_script'].'</p>
+                            <p class="card-text">'.htmlspecialchars($data['konten_script']).'</p>
                             <br>
-                            <a href="/script/'.$data['slug_script'].'" class="hvr-bounce-in link-light" style="font-size: 15px;"><small>Selengkapnya</small></a>
+                            <a href="/script/'.$data['script_slug'].'" class="hvr-bounce-in link-light" style="font-size: 15px;"><small>Selengkapnya</small></a>
                         </div>
                     </div>
                     ';

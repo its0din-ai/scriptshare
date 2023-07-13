@@ -21,9 +21,9 @@
                                 <small class="card-text disabled mt-0"><p><em>Uploader:: '. $data['uploader'] .'<br>Status:: '. $data['visibility'] .'</em></p></small>
                                 <small class="card-text disabled mt-0"><p><em></em></p></small>
                                 <hr>
-                                <p class="card-text">'.$data['konten_script'].'</p>
+                                <p class="card-text">'.htmlspecialchars($data['konten_script']).'</p>
                                 <br>
-                                <a href="/script/'.$data['slug_script'].'" class="hvr-bounce-in link-light" style="font-size: 15px;"><small>Selengkapnya</small></a>
+                                <a href="/script/'.$data['script_slug'].'" class="hvr-bounce-in link-light" style="font-size: 15px;"><small>Selengkapnya</small></a>
                             </div>
                         </div>
                         ';
@@ -36,9 +36,9 @@
                                 <small class="card-text disabled mt-0"><p><em>Uploader:: '. $data['uploader'] .'<br>Status:: '. $data['visibility'] .'</em></p></small>
                                 <small class="card-text disabled mt-0"><p><em></em></p></small>
                                 <hr>
-                                <p class="card-text">'.$data['konten_script'].'</p>
+                                <p class="card-text">'.htmlspecialchars($data['konten_script']).'</p>
                                 <br>
-                                <a href="/script/'.$data['slug_script'].'" class="hvr-bounce-in link-light" style="font-size: 15px;"><small>Selengkapnya</small></a>
+                                <a href="/script/'.$data['script_slug'].'" class="hvr-bounce-in link-light" style="font-size: 15px;"><small>Selengkapnya</small></a>
                             </div>
                         </div>
                         ';

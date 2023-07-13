@@ -109,8 +109,11 @@ get('/dashboard/short', function() {
 // Note:
 // Route dari /dashboard/* adalah route buat manajemen
 // Route dari /sc/:slug dan /ln/:slug adalah route buat nampilin konten
-
-
+if ($_SERVER['REQUEST_URI'] == '/script' || strpos($_SERVER['REQUEST_URI'], '/script/') === 0) {
+    $slug = substr($_SERVER['REQUEST_URI'], 8);
+    $scriptController = new ScriptController();
+    $scriptController->script($slug);
+}
 
 
 // Handling kalo Not Found

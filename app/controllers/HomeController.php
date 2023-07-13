@@ -147,8 +147,8 @@ class HomeController
         $stmt->execute([':username' => $username]);
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         
-        if ($result && password_verify($password, $result['password'])) {
-            $user = new User($result['username'], $result['nama_pengguna'], $result['profile_path'], $result['password'], $result['roles']);
+        if ($result && password_verify($password, $result['pass'])) {
+            $user = new User($result['username'], $result['nama_pengguna'], $result['profile_path'], $result['pass'], $result['roles']);
             $status = true;
             $_SESSION['users'] = $user->toArray();
             header('Location: /dashboard');

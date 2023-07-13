@@ -28,15 +28,15 @@ class User
             'username' => $this->username,
             'nama_pengguna' => $this->nama_pengguna,
             'profile' => $this->profile,
-            'password' => $this->password,
+            'pass' => $this->password,
             'roles' => $this->roles
         ];
     }
 
     public function insertUser($username, $nama_pengguna, $profile_path, $password, $roles){
         $db = DB::getInstance();
-        $stmt = $db->prepare('INSERT INTO users (username, nama_pengguna, profile_path, password, roles) VALUES (:username, :nama_pengguna, :profile_path, :password, :roles)');
-        $stmt->execute([':username' => $username, ':nama_pengguna' => $nama_pengguna, ':profile_path' => $profile_path, ':password' => password_hash($password, PASSWORD_DEFAULT), ':roles' => $roles]);
+        $stmt = $db->prepare('INSERT INTO users (username, nama_pengguna, profile_path, pass, roles) VALUES (:username, :nama_pengguna, :profile_path, :pass, :roles)');
+        $stmt->execute([':username' => $username, ':nama_pengguna' => $nama_pengguna, ':profile_path' => $profile_path, ':pass' => password_hash($password, PASSWORD_DEFAULT), ':roles' => $roles]);
     }
 
     public function cekUsername($data){

@@ -27,7 +27,7 @@ class ScriptModel
         return [
             'id' => $this->id,
             'judul_script' => $this->judul_script,
-            'slug_script' => $this->slug_script,
+            'script_slug' => $this->slug_script,
             'konten_script' => $this->konten_script,
             'visibility' => $this->visibility,
             'tanggal' => $this->tanggal

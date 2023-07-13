@@ -7,22 +7,22 @@ class ScriptController
 {
     public function upload($data){
         
-        $slug_script = substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 10);
+        $script_slug = substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 10);
 
         $db = DB::getInstance();
-        $validasi = "SELECT slug_script FROM scriptdb WHERE slug_script = :slug_script";
+        $validasi = "SELECT script_slug FROM script_db WHERE script_slug = :script_slug";
         $stmt = $db->prepare($validasi);
-        $stmt->execute([':slug_script' => $slug_script]);
+        $stmt->execute([':script_slug' => $script_slug]);
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if($result){
-            $slug_script = substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 10);
+            $script_slug = substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 10);
         }else{
-            $query = "INSERT INTO scriptdb (uploader, judul_script, slug_script, konten_script, visibility) VALUES (:uploader, :judul_script, :slug_script, :konten_script, :visibility)";
+            $query = "INSERT INTO script_db (uploader, judul_script, script_slug, konten_script, visibility) VALUES (:uploader, :judul_script, :script_slug, :konten_script, :visibility)";
             $stmt = $db->prepare($query);
             $stmt->bindParam(':uploader', $data['id_user']);
             $stmt->bindParam(':judul_script', $data['judul_script']);
-            $stmt->bindParam(':slug_script', $slug_script);
+            $stmt->bindParam(':script_slug', $script_slug);
             $stmt->bindParam(':konten_script', $data['konten_script']);
             $stmt->bindParam(':visibility', $data['visibility']);
             $stmt->execute();
@@ -33,7 +33,7 @@ class ScriptController
 
     public function getPost(){
         $db = DB::getInstance();
-        $query = "SELECT id, uploader, judul_script, slug_script, SUBSTRING(konten_script, 1, 250) AS konten_script, tanggal, visibility, nama_pengguna, profile_path FROM scriptdb, users WHERE username = uploader ORDER BY tanggal DESC;";
+        $query = "SELECT id, uploader, judul_script, script_slug, SUBSTRING(konten_script, 1, 250) AS konten_script, tanggal, visibility, nama_pengguna, profile_path FROM script_db, users WHERE username = uploader ORDER BY tanggal DESC;";
         $stmt = $db->prepare($query);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -43,13 +43,28 @@ class ScriptController
 
     public function getPrivatePost(){
         $db = DB::getInstance();
-        $query = "SELECT id, uploader, judul_script, slug_script, SUBSTRING(konten_script, 1, 250) AS konten_script, tanggal, visibility, nama_pengguna, profile_path FROM scriptdb, users WHERE uploader = :username AND username = :username ORDER BY visibility = 'Public' DESC, tanggal DESC;";
+        $query = "SELECT id, uploader, judul_script, script_slug, SUBSTRING(konten_script, 1, 250) AS konten_script, tanggal, visibility, nama_pengguna, profile_path FROM script_db, users WHERE uploader = :username AND username = :username ORDER BY visibility = 'Public' DESC, tanggal DESC;";
         $stmt = $db->prepare($query);
         $stmt->bindParam(':username', $_SESSION['users']['username']);
         $stmt->execute();
         $prv = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         return $prv;
+    }
+
+    public function script($slug){
+        $db = DB::getInstance();
+        $query = "SELECT id, uploader, judul_script, script_slug, konten_script, tanggal, visibility, nama_pengguna, profile_path FROM script_db, users WHERE script_slug = :slug AND username = uploader";
+        $stmt = $db->prepare($query);
+        $stmt->execute([':slug' => $slug]);
+        $detail = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        $content = dirname(__FILE__) . '/../views/dashboard/script/detail.php';
+        $judul = $detail['judul_script'];
+        include dirname(__FILE__) . '/../views/layout/app.php';
+
+        return $detail;
+        // header('Location: /dashboard/script');
     }
 
 }
