@@ -45,6 +45,11 @@
                 }
                 
             }
+            if($prv == null){
+                echo '<div class="alert alert-sm alert-warning mt-3" role="alert">
+                    Anda tidak memiliki script apapun, silahkan menambahkan data.
+                </div>';
+            }
         ?>
     </div>
 </div>
