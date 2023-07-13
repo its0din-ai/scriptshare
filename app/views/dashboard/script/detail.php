@@ -5,10 +5,10 @@
                 if($_SESSION == null){
                     echo '<a href="/" class="link link-success"><h6>Kembali</h6></a>';
                 }else{
-                    echo '<a href="/dashboard/script" class="link link-success"><h6>Kembali</h6></a>';
+                    echo '<a href="/dashboard/script/personal" class="link link-success"><h6>Kembali</h6></a>';
                 }
             ?>
-            <h6>Detail Personal</h6>
+            <h6>Detail Script</h6>
         </div>
         <hr>
         <?php
