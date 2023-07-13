@@ -49,16 +49,21 @@
                         </button>
                         <ul class="dropdown-menu dropdown-menu-dark">
                             <li><a class="dropdown-item" href="/dashboard">Home</a></li>
-                            <li><a class="dropdown-item" href="/dashboard/script">Share a Scripts</a></li>
-                            <li><a class="dropdown-item" href="/dashboard/short">Short a Links</a></li>
-                        </ul>
+                            
+                            ';
+                        if ($_SESSION['users']['roles'] === 'admin') {
+                            echo '<li><a class="dropdown-item" href="/manage/user">Manage Users</a></li>
+                            <li><a class="dropdown-item" href="/manage/script">Manage Scripts</a></li>
+                            <li><a class="dropdown-item" href="/manage/shortlink">Manage Shortlinks</a></li>';
+                        }
+                        echo '<li><a class="dropdown-item" href="/dashboard/script">Share a Scripts</a></li>
+                        <li><a class="dropdown-item" href="/dashboard/short">Short a Links</a></li></ul>
                         </li>';
                     }
                     ?>
                 </ul>
                 <ul class="navbar-nav d-flex">
                     <?php
-                    $adaSesiLogin = isset($_SESSION['users']);
                     if ($adaSesiLogin) {
                         echo '<li class="nav-item mt-md-auto mt-sm-2">
                                 <a href="/logout" class="btn btn-sm btn-outline-danger">Logout</a>
