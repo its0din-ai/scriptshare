@@ -35,7 +35,7 @@
                     echo '
                     <div class="card border-danger mt-3">
                         <div class="card-body ">
-                            <h4 class="card-title mb-0">PRIVATE!!</h4>
+                            <h4 class="card-title mb-0">SCRIPT INI PRIVATE ATAU SUDAH DIHAPUS!!</h4>
                         </div>
                     </div>
                     ';
