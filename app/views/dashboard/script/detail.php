@@ -44,14 +44,12 @@
             else{
                 if($detail['uploader'] == $_SESSION['users']['username']){
                     echo '
+                    
                         <div class="btn-group" role="group" aria-label="Basic outlined example">
-                            <a type="button" class="btn btn-outline-warning" href="/edit/sc/'.$detail['script_slug'].'">Edit</a>
-                            <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <a type="button" class="btn btn-outline-light" href="/edit/sc/'.$detail['script_slug'].'">Edit</a>
+                            <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             Delete
                             </button>
-
-                            <!-- Modal -->
                             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -69,8 +67,10 @@
                                 </div>
                             </div>
                             </div>
-
+                            <button type="button" class="btn btn-outline-light" onclick="copy()">Copy Link</button>
+                            
                         </div>
+                        <p class="text-success" id="alert-copy"></p>
                         <div class="card border-info mt-3">
                             <div class="card-body ">
                                 <h4 class="card-title mb-0">'.$detail['judul_script'].'</h4>
@@ -113,5 +113,15 @@
 
         document.body.appendChild(form);
         form.submit();
+    }
+
+    function copy(){
+        var dummy = document.createElement("textarea");
+        document.body.appendChild(dummy);
+        dummy.value = "http://scriptshare.tech/script/<?php echo $detail['script_slug']; ?>";
+        dummy.select();
+        document.execCommand("copy");
+        document.body.removeChild(dummy);
+        document.getElementById("alert-copy").innerHTML = 'Link berhasil dicopy!';
     }
 </script>
