@@ -3,6 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Scriptshare">
+    <meta property="og:description" content="ScriptShare is a Student Project that inspired by Pastebin written in PHP">
+    <meta property="og:image" content="http://scriptshare.tech/public/img/brand-lg.png">
+    <meta property="og:url" content="http://scriptshare.tech">
+    <meta property="og:type" content="website">
+
+
     <link rel="shortcut icon" href="/public/img/fav.png" type="image/x-icon">
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
