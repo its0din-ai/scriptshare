@@ -1,4 +1,3 @@
-# ScriptShare
 <div align="center">
   <img src="https://raw.githubusercontent.com/its0din-ai/scriptshare/master/public/img/meta-banner.jpg" width="300px"/>
 </div>
@@ -21,7 +20,7 @@ Techstack Used:<br>
 [![GitHub](https://img.shields.io/github/license/its0din-ai/scriptshare?&style=for-the-badge&labelColor=DFDCD4&color=223750)](https://github.com/its0din-ai/scriptshare/)
 [![GitHub Repo stars](https://img.shields.io/github/stars/its0din-ai/scriptshare?&style=for-the-badge&labelColor=DFDCD4&color=223750)](https://github.com/its0din-ai/scriptshare/)
 
-
+<br><br>
 <div align="center">
   <p>Builded with 🔮</p>
 </div>
