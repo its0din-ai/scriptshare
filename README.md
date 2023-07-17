@@ -3,7 +3,7 @@
 </div>
 
 # 
-ScriptShare is a Student Project that inspired by Pastebin written in PHP
+ScriptShare is a Student Project that inspired by Pastebin written in PHP<br>
 Anggota Kelompok:
 1. L200210056 - Muhammad Wahyu Syafi'uddin
 2. L200210023 - Hyuga Dewanto Kojyro
@@ -21,6 +21,7 @@ Techstack Used:<br>
 [![GitHub Repo stars](https://img.shields.io/github/stars/its0din-ai/scriptshare?&style=for-the-badge&labelColor=DFDCD4&color=223750)](https://github.com/its0din-ai/scriptshare/)
 
 <br><br>
+#
 <div align="center">
   <p>Builded with 🔮</p>
 </div>
