@@ -53,6 +53,8 @@ a {
 }
 
 /* background */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
 .bgAnimation {
   position: absolute;
   top: 0;
@@ -61,42 +63,42 @@ a {
   height: 100vh;
   display: grid;
   grid-template-columns: repeat(20, 1fr);
-  grid-template-row: repeat(20, 1fr);
-  background: #1d1d1d;
+  grid-template-rows: repeat(20, 1fr);
+  background: #212529;
   filter: saturate(2);
   overflow: hidden;
 }
 
-.colorBox{
+.colorBox {
   z-index: 2;
   filter: brightness(1.1);
   transition: 2s ease;
-  position; relative;
-  margin: 2 px;
-  background: #1d1d1d;
+  position: relative;
+  margin: 2px;
+  background: #212529;
 }
 
-.colorBox:hover{
-  background: #00bfff;
+.colorBox:hover {
+  background: #0dcaf0;
   transition-duration: 0s;
 }
 
-.backgroundAnim{
+.backgroundAmim {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 60px;
-  background: #00bfff;
+  height: 40px;
+  background: #0dcaf0;
   filter: blur(60px);
   animation: animBack 6s linear infinite;
 }
 
-@keyframes animBack{
-  0%{
+@keyframes animBack {
+  0% {
     top: -60px;
   }
-  100%{
+  100% {
     top: 120%;
   }
 }
