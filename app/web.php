@@ -3,6 +3,7 @@
 require './app/controllers/HomeController.php';
 require './app/controllers/DashboardController.php';
 require './app/controllers/ScriptController.php';
+require './app/controllers/UserController.php';
 
 require './app/func/route.php';
 
@@ -134,6 +135,32 @@ post('/hapus/sc', function() {
     $slug = $_POST['slug'];
     $scriptController = new ScriptController();
     $scriptController->hapus_script($slug);
+});
+
+
+// Handler Edit
+get('/dashboard/edit', function() {
+    $userController = new UserController();
+    $userController->index($_SESSION['users']['username']);   
+});
+post('/dashboard/edit', function() {
+    $userController = new UserController();
+    $userController->update();
+});
+
+post('/cekpass', function($request, $response) {
+    $passwd = $_POST['passwd'];
+    $username = $_POST['username'];
+    $userController = new UserController();
+    $passSama = $userController->cekPasswd($passwd, $username);
+
+    if ($passSama) {
+        echo 'match';
+    } else {
+        echo 'not';
+    }
+
+    return $response;
 });
 
 

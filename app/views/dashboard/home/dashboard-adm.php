@@ -26,7 +26,7 @@
             style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
                 <div class="container masking my-3">
                     <div class="mask lingkar" ></div>
-                    <img src="<?= $_SESSION['users']['profile']; ?>" alt="Profil" class="gambar-profil rounded-circle img-fluid"/>
+                    <img src="<?= $_SESSION['users']['profile_path']; ?>" alt="Profil" class="gambar-profil rounded-circle img-fluid"/>
                 </div>
                 <h5><?= $_SESSION['users']['nama_pengguna'];?></h5>
                 <p>@<?= $_SESSION['users']['username'];?></p>
