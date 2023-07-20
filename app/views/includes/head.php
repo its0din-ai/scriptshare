@@ -3,6 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ScriptShare is a Student Project that inspired by Pastebin written in PHP">
+    <meta property="og:title" content="Scriptshare">
+    <meta property="og:description" content="ScriptShare is a Student Project that inspired by Pastebin written in PHP">
+    <meta property="og:image" content="http://scriptshare.tech/public/img/meta-banner.jpg">
+    <meta property="og:url" content="http://scriptshare.tech">
+    <meta property="og:type" content="website">
+
+
     <link rel="shortcut icon" href="/public/img/fav.png" type="image/x-icon">
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -49,16 +57,21 @@
                         </button>
                         <ul class="dropdown-menu dropdown-menu-dark">
                             <li><a class="dropdown-item" href="/dashboard">Home</a></li>
-                            <li><a class="dropdown-item" href="/dashboard/script">Share a Scripts</a></li>
-                            <li><a class="dropdown-item" href="/dashboard/short">Short a Links</a></li>
-                        </ul>
+                            
+                            ';
+                        if ($_SESSION['users']['roles'] === 'admin') {
+                            echo '<li><a class="dropdown-item" href="/manage/user">Manage Users</a></li>
+                            <li><a class="dropdown-item" href="/manage/script">Manage Scripts</a></li>
+                            <li><a class="dropdown-item" href="/manage/shortlink">Manage Shortlinks</a></li>';
+                        }
+                        echo '<li><a class="dropdown-item" href="/dashboard/script">Share a Scripts</a></li>
+                        <li><a class="dropdown-item" href="/dashboard/short">Short a Links</a></li></ul>
                         </li>';
                     }
                     ?>
                 </ul>
                 <ul class="navbar-nav d-flex">
                     <?php
-                    $adaSesiLogin = isset($_SESSION['users']);
                     if ($adaSesiLogin) {
                         echo '<li class="nav-item mt-md-auto mt-sm-2">
                                 <a href="/logout" class="btn btn-sm btn-outline-danger">Logout</a>

@@ -1,14 +1,14 @@
 <div class="container-sm ">
-    <div class="mx-auto mt-5 pt-5 w-md-50">
+    <div class="mx-auto w-md-50">
         <div class="">
             <?php
                 if($_SESSION == null){
                     echo '<a href="/" class="link link-success"><h6>Kembali</h6></a>';
                 }else{
-                    echo '<a href="/dashboard/script" class="link link-success"><h6>Kembali</h6></a>';
+                    echo '<a href="/dashboard/script/personal" class="link link-success"><h6>Kembali</h6></a>';
                 }
             ?>
-            <h6>Detail Personal</h6>
+            <h6>Detail Script</h6>
         </div>
         <hr>
         <?php
@@ -35,7 +35,7 @@
                     echo '
                     <div class="card border-danger mt-3">
                         <div class="card-body ">
-                            <h4 class="card-title mb-0">PRIVATE!!</h4>
+                            <h4 class="card-title mb-0">SCRIPT INI PRIVATE ATAU SUDAH DIHAPUS!!</h4>
                         </div>
                     </div>
                     ';
@@ -44,7 +44,33 @@
             else{
                 if($detail['uploader'] == $_SESSION['users']['username']){
                     echo '
-                    <h3>INI BISA EDIT & AKSES YG PRIVAT</h3>
+                    
+                        <div class="btn-group" role="group" aria-label="Basic outlined example">
+                            <a type="button" class="btn btn-outline-light" href="/edit/sc/'.$detail['script_slug'].'">Edit</a>
+                            <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Delete
+                            </button>
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Alert!</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Apakah anda yakin ingin menghapus script <em>'.$detail['judul_script'].'</em> ?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Tidak</button>
+                                    <button type="button" class="btn btn-outline-primary" onclick="hapus()">Hapus</button>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                            <button type="button" class="btn btn-outline-light" onclick="copy()">Copy Link</button>
+                            
+                        </div>
+                        <p class="text-success" id="alert-copy"></p>
                         <div class="card border-info mt-3">
                             <div class="card-body ">
                                 <h4 class="card-title mb-0">'.$detail['judul_script'].'</h4>
@@ -74,3 +100,28 @@
         ?>
     </div>
 </div>
+<script>
+    function hapus(){
+        var form = document.createElement('form');
+        form.method = 'POST';
+        form.action = '/hapus/sc';
+        var slugInput = document.createElement('input');
+        slugInput.type = 'hidden';
+        slugInput.name = 'slug';
+        slugInput.value = '<?php echo $detail['script_slug']; ?>';
+        form.appendChild(slugInput);
+
+        document.body.appendChild(form);
+        form.submit();
+    }
+
+    function copy(){
+        var dummy = document.createElement("textarea");
+        document.body.appendChild(dummy);
+        dummy.value = "http://scriptshare.tech/script/<?php echo $detail['script_slug']; ?>";
+        dummy.select();
+        document.execCommand("copy");
+        document.body.removeChild(dummy);
+        document.getElementById("alert-copy").innerHTML = 'Link berhasil dicopy!';
+    }
+</script>
