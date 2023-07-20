@@ -1,6 +1,13 @@
 <section id="home" class="">
     <div class="container-sm ">
         <!-- GANTI HOME MULAI DARI SINI-->
+        <div class="bgAnimation mx-auto" id="bgAnimation">
+            <div class="backgroundAnim">
+
+            </div>
+
+        </div>
+
         <div class="card mx-auto" style="max-width: 540px;">
             <div class="row g-0">
                 <div class="col-md-4">
@@ -16,6 +23,7 @@
                 </div>
             </div>
         </div>
+
         <!-- SAMPAI SINI-->
     </div>
 </section>
@@ -43,3 +51,14 @@
         <!-- SAMPAI SINI-->
     </div>
 </section>
+
+<script>
+const bgAnimation = document.getElementById('bgAnimation');
+const numberOfColorBoxes = 400;
+
+for (let i = 0; i < numberOfColorBoxes; i++) {
+    const colorBox = document.createElement('div');
+    colorBox.classList.add('colorBox');
+    bgAnimation.append(colorBox)
+}
+</script>
