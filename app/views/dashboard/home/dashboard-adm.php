@@ -39,11 +39,21 @@
                     <div class="row pt-1">
                         <div class="col-6 mb-3">
                             <h6>Script Created</h6>
-                            <p class="text-muted">info@example.com</p>
+                            <div class="text-muted numAnim" max="<?php
+                                $x = new UserController();
+                                $totalScript = $x->totalScript();
+
+                                echo $totalScript;
+                            ?>">0</div>
                         </div>
                         <div class="col-6 mb-3">
                             <h6>Links Shorted</h6>
-                            <p class="text-muted">123 456 789</p>
+                            <div class="text-muted numAnim" max="<?php
+                                $x = new UserController();
+                                $totalShort = $x->totalShort();
+
+                                echo $totalShort;
+                            ?>"></div>
                         </div>
                         <div class="col-12 pt-5 text-end">
                             <a href="/dashboard/edit" class="btn btn-sm btn-outline-info">Edit Profile</a>
@@ -56,3 +66,27 @@
     </div>
 </div>
 </div>
+
+<script>
+    const counters = document.querySelectorAll('.numAnim');
+    const animationDuration = 10*10000000;
+
+    counters.forEach(counter => {
+        const value = +counter.getAttribute('max');
+        const initialValue = +counter.innerText;
+        const increment = (value - initialValue) / (animationDuration / 16);
+        
+        const animate = () => {
+            let currentValue = +counter.innerText;
+
+            if (currentValue < value) {
+                counter.innerText = Math.ceil(currentValue + increment);
+                requestAnimationFrame(animate);
+            } else {
+                counter.innerText = value;
+            }
+        }
+
+        animate();
+    });
+</script>

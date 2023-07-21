@@ -1,5 +1,10 @@
 <?php
 
+// namespace App\Models;
+// require './app/func/DB.php';
+
+use App\Models\ScriptModel;
+use App\Func\DB;
 
 class DashboardController
 {
@@ -52,6 +57,8 @@ class DashboardController
             header('Location: /login');
         }
     }
+
+    
 
 
 
