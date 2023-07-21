@@ -2,7 +2,6 @@
 require_once './app/models/ScriptModel.php';
 require_once './app/models/ShortModel.php';
 
-
 use App\Models\ScriptModel;
 use App\Models\ShortModel;
 use App\Models\User;
