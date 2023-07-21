@@ -8,21 +8,21 @@
                 <h5 class="text-uppercase mt-4"><strong>TechstackS</strong></h5>
                 <p class="text-justify mb-0">Web App ini dibangun menggunakan DVCS berupa Github dan setelah initial release, Repository akan dibuat publik sehingga semua orang dapat membaca source code atau berkontribusi untuk mengembangkan lebih jauh lagi. Berikut adalah beberapa Techstack yang digunakan oleh Web App ini:</p>
                 <ul style="list-style: none; padding-left: 0px;">
-                    <li class=""><a href="https://github.com/its0din-ai" target="_blank" class="text-info hvr-bounce-in" >Bootstrap</a></li>
-                    <li class=""><a href="https://github.com/its0din-ai" target="_blank" class="text-info hvr-bounce-in" >jQuery</a></li>
-                    <li class=""><a href="https://github.com/its0din-ai" target="_blank" class="text-info hvr-bounce-in" >Fontawesome</a></li>
-                    <li class=""><a href="https://github.com/its0din-ai" target="_blank" class="text-info hvr-bounce-in" >animate.css</a></li>
-                    <li class=""><a href="https://github.com/its0din-ai" target="_blank" class="text-info hvr-bounce-in" >AnimateOnScroll</a></li>
+                    <li class=""><a href="https://getbootstrap.com/" target="_blank" class="text-info hvr-bounce-in" >Bootstrap</a></li>
+                    <li class=""><a href="https://jquery.com/" target="_blank" class="text-info hvr-bounce-in" >jQuery</a></li>
+                    <li class=""><a href="https://fontawesome.com/" target="_blank" class="text-info hvr-bounce-in" >Fontawesome</a></li>
+                    <li class=""><a href="https://animate.style/" target="_blank" class="text-info hvr-bounce-in" >animate.css</a></li>
+                    <li class=""><a href="https://michalsnik.github.io/aos/" target="_blank" class="text-info hvr-bounce-in" >AnimateOnScroll</a></li>
                     <li class=""><a href="https://ianlunn.github.io/Hover/" target="_blank" class="text-info hvr-bounce-in" >Hover.css</a></li>
                 </ul>
             </div>
             <div class="col-md-4">
                 <h5 class="text-uppercase mt-4"><strong>Media</strong></h5>
                 <ul style="list-style: none; padding-left: 0px;">
-                    <li class=""><a href="https://github.com/its0din-ai" target="_blank" class="text-warning hvr-bounce-in" >GitHub Repo</a></li>
+                    <li class=""><a href="https://github.com/its0din-ai/scriptshare" target="_blank" class="text-warning hvr-bounce-in" >GitHub Repo</a></li>
                     <li class=""><a href="https://s.id/encrypt0r" target="_blank" class="text-warning hvr-bounce-in" >odin@microsite</a></li>
-                    <li class=""><a href="https://github.com/its0din-ai" target="_blank" class="text-warning hvr-bounce-in" >p2@instagram</a></li>
-                    <li class=""><a href="https://github.com/its0din-ai" target="_blank" class="text-warning hvr-bounce-in" >p3@linkedin</a></li>
+                    <li class=""><a href="https://instagram.com/" target="_blank" class="text-warning hvr-bounce-in" >p2@instagram</a></li>
+                    <li class=""><a href="https://linkedin.com/" target="_blank" class="text-warning hvr-bounce-in" >p3@linkedin</a></li>
                 </ul>
             </div>
             <div class="col-md-4">
