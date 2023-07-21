@@ -1,9 +1,11 @@
 <?php
 
+require './app/controllers/AdminController.php';
 require './app/controllers/HomeController.php';
 require './app/controllers/DashboardController.php';
 require './app/controllers/ScriptController.php';
 require './app/controllers/UserController.php';
+require './app/controllers/ManagerController.php';
 
 require './app/func/route.php';
 
@@ -71,6 +73,8 @@ get('/logout', function() {
 
 
 // Rute ke fungsi-fungsi Fitur
+
+// DASHBOARD ROUTE
 get('/dashboard', function() {
     $dashboardController = new DashboardController();
     $dashboardController->index();
@@ -161,6 +165,22 @@ post('/cekpass', function($request, $response) {
     }
 
     return $response;
+});
+
+// MANAGER ROUTE
+get('/manage/user', function() {
+    $adminController = new AdminController();
+    $adminController->index();
+});
+
+get('/manage/script', function() {
+    $managerController = new ManagerController();
+    $managerController->indexScript();
+});
+
+get('/manage/short', function() {
+    $managerController = new ManagerController();
+    $managerController->indexShort();
 });
 
 
