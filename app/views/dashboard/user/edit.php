@@ -41,7 +41,7 @@
                         class="form-control" name="passBaru"
                         autocomplete="new-passBaru">
                     <button class="btn btn-outline-secondary" type="button" id="mataPasswords"
-                        onclick="showPassword()">
+                        onclick="showPassword1()">
                         <i class="fa-solid fa-eye"></i>
                     </button>
                 </div>
@@ -53,7 +53,7 @@
                         class="form-control" name="crntPass"
                         required>
                     <button class="btn btn-outline-secondary" type="button" id="mataPassword"
-                        onclick="showPassword()">
+                        onclick="showPassword2()">
                         <i class="fa-solid fa-eye"></i>
                     </button>
                 </div>
@@ -68,8 +68,19 @@
 </div>
 
 <script>
-    function showPassword() {
-        var inputan = document.getElementById("passwd");
+    function showPassword1() {
+        var inputan = document.getElementById("passBaru");
+        if (inputan.type === "password") {
+            inputan.type = "text";
+            document.getElementById("mataPasswords").innerHTML = '<i class="fa-solid fa-eye-slash"></i>';
+        } else {
+            inputan.type = "password";
+            document.getElementById("mataPasswords").innerHTML = '<i class="fa-solid fa-eye"></i>';
+        }
+    }
+
+    function showPassword2() {
+        var inputan = document.getElementById("crntPass");
         if (inputan.type === "password") {
             inputan.type = "text";
             document.getElementById("mataPassword").innerHTML = '<i class="fa-solid fa-eye-slash"></i>';

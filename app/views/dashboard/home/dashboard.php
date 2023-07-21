@@ -26,3 +26,39 @@
         </nav>
     </div>
 
+    <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body me-auto ms-auto">
+                <p>
+                    <span>
+                        <i class="fa-regular fa-circle-check fa-bounce fa-lg align-center me-2" style="color: #fafafa;"></i>
+                    </span>
+                Profil kamu berhasil diubah!</p>
+                <div class="row">
+                    <button class="btn btn-sm btn-outline-light" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Done</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <button type="button" id="myModalTriggerButton" style="display: none;" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" aria-hidden></button>
+    <?php
+        if(isset($_SESSION['success-edit'])){
+            echo '<script>
+                // JavaScript to trigger the modal when the PHP condition is true
+                window.addEventListener("DOMContentLoaded", function() {
+                    // Find the trigger button element
+                    const triggerButton = document.getElementById("myModalTriggerButton");
+
+                    // Trigger the modal
+                    if (triggerButton) {
+                        triggerButton.click();
+                    }
+                });
+            </script>';
+            unset($_SESSION['success-edit']);
+        }
+    ?>
+

@@ -183,7 +183,9 @@ get('/manage/short', function() {
     $managerController->indexShort();
 });
 
-
+get('/public', function() {
+    http_response_code(403);
+});
 
 // Handling kalo Not Found
 get('/404', function() {
