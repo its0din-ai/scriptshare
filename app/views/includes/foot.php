@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-4">
                 <h5 class="text-uppercase mt-4"><strong>TechstackS</strong></h5>
-                <p class="text-justify mb-0">Web App ini dibangun menggunakan DVCS berupa Github dan setelah initial release, Repository akan dibuat publik sehingga semua orang dapat membaca source code atau berkontribusi untuk mengembangkan lebih jauh lagi. Berikut adalah beberapa Techstack yang digunakan oleh Web App ini:</p>
+                <p class="text-justify mb-0">Web App ini dibangun menggunakan DVCs berupa Github dan setelah initial release, Repository akan dibuat publik sehingga semua orang dapat membaca source code atau berkontribusi untuk mengembangkan lebih jauh lagi. Berikut adalah beberapa Techstack yang digunakan oleh Web App ini:</p>
                 <ul style="list-style: none; padding-left: 0px;">
                     <li class=""><a href="https://getbootstrap.com/" target="_blank" class="text-info hvr-bounce-in" >Bootstrap</a></li>
                     <li class=""><a href="https://jquery.com/" target="_blank" class="text-info hvr-bounce-in" >jQuery</a></li>
