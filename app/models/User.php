@@ -52,6 +52,15 @@ class User
         }
     }
 
+    public static function allUser(){
+        $db = DB::getInstance();
+        $query = "SELECT * FROM users";
+        $stmt = $db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        return $result;
+    }
+
     public static function where($param, $username){
         $db = DB::getInstance();
         $query = "SELECT * FROM users WHERE $param = '$username'";

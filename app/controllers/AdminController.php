@@ -8,11 +8,17 @@ use App\Func\DB;
 
 class AdminController
 {
+    public function getAllUser(){
+        $userModel = User::allUser();
+        return $userModel;
+    }
+
     public function index(){
         if(isset($_SESSION['users'])){
             if($_SESSION['users']['roles'] == 'admin'){
                 $content = dirname(__FILE__) . '/../views/dashboard/user/manage-user.php';
                 $judul = 'User Manager';
+                $data = $this->getAllUser();
                 include dirname(__FILE__) . '/../views/layout/app.php';
             }
             else if($_SESSION['users']['roles'] == 'users'){
