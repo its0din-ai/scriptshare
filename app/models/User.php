@@ -70,10 +70,31 @@ class User
         return $result;
     }
 
-    public function updateUser($username, $namaBaru, $profile_path, $password, $roles){
+    public static function getParam($param, $username){
+        $db = DB::getInstance();
+        $query = "SELECT $param FROM users WHERE username = '$username'";
+        $stmt = $db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->fetch();
+        return $result;
+    }
+
+    public static function updateUser($username, $namaBaru, $profile_path, $password, $roles){
         $db = DB::getInstance();
         $stmt = $db->prepare('UPDATE users SET nama_pengguna = :namaBaru, profile_path = :profile_path, pass = :pass, roles = :roles WHERE username = :username');
         $stmt->execute([':username' => $username, ':namaBaru' => $namaBaru, ':profile_path' => $profile_path, ':pass' => $password, ':roles' => $roles]);
+        $err = $stmt->errorInfo();
+        if ($err[0] != '00000') {
+            echo $err[2];
+        }else{
+            return true;
+        }
+    }
+
+    public static function updateUserByAdmin($crntUser, $username, $namaBaru, $profile_path, $password, $roles){
+        $db = DB::getInstance();
+        $stmt = $db->prepare('UPDATE users SET username = :username, nama_pengguna = :namaBaru, profile_path = :profile_path, pass = :pass, roles = :roles WHERE username = :crntUser');
+        $stmt->execute([':username' => $username, ':namaBaru' => $namaBaru, ':profile_path' => $profile_path, ':pass' => $password, ':roles' => $roles, ':crntUser' => $crntUser]);
         $err = $stmt->errorInfo();
         if ($err[0] != '00000') {
             echo $err[2];

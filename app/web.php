@@ -9,6 +9,8 @@ require './app/controllers/ManagerController.php';
 
 require './app/func/route.php';
 
+use App\Models\User;
+
 // Rute GET Biasa
 get('/', function() {
     $homeController = new HomeController();
@@ -171,6 +173,42 @@ post('/cekpass', function($request, $response) {
 get('/manage/user', function() {
     $adminController = new AdminController();
     $adminController->index();
+});
+
+if ($_SERVER['REQUEST_URI'] == '/manage/user' || strpos($_SERVER['REQUEST_URI'], '/manage/user') === 0) {
+    $usrnm = substr($_SERVER['REQUEST_URI'], 13);
+    $adminController = new AdminController();
+    $adminController->editByAdmin($usrnm);
+}
+// post edit
+post('/update/user', function() {
+    // create new array of post data username, nama_lengkap, foto, password, roles
+    $crntUser = $_POST['crntUser'];
+    if($_POST['passBaru'] == "" && $_FILES['fotoBaru'] == ""){
+        $passUser = User::getParam('pass', $_POST['username']);
+        $profile = User::getParam('profile_path', $_POST['username']);
+        $dat = array($crntUser, $_POST['username'], $_POST['nama_baru'], $profile, $passUser, $_POST['roles']);
+        $adminController = new AdminController();
+        $adminController->update($dat);
+    }
+    else if($_POST['passBaru'] == ""){
+        $passUser = User::getParam('pass', $_POST['username']);
+        $dat = array($crntUser, $_POST['username'], $_POST['nama_baru'], $_FILES['fotoBaru'], $passUser, $_POST['roles']);
+        $adminController = new AdminController();
+        $adminController->update($dat);
+    }
+    else if($_FILES['fotoBaru'] == ""){
+        $profile = User::getParam('profile_path', $_POST['username']);
+        $dat = array($crntUser, $_POST['username'], $_POST['nama_baru'], $profile, $_POST['pass'], $_POST['roles']);
+        $adminController = new AdminController();
+        $adminController->update($dat);
+    }
+    else{
+        $dat = array($crntUser, $_POST['username'], $_POST['nama_baru'], $_FILES['fotoBaru'], $_POST['passBaru'], $_POST['roles']);
+        $adminController = new AdminController();
+        $adminController->update($dat);
+    }
+
 });
 
 get('/manage/script', function() {
