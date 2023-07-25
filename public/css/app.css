@@ -85,8 +85,8 @@ a {
   filter: brightness(1.1);
   transition: 2s ease;
   position: relative;
-  margin: 2px;
-  background: #212529;
+  margin: 2 px;
+  background: #1d1d1d;
 }
 
 .colorBox:hover {
