@@ -1,4 +1,3 @@
-<?php // $loc='edit'; include dirname(__FILE__) . '\..\home\dashboard.php';?>
 
 <div class="container-sm">
     <div class="row">

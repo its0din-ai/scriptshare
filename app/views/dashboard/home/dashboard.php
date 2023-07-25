@@ -6,7 +6,9 @@
     </div>
     <div class="col-9">
     <?php
+    echo basename($_SERVER['PHP_SELF']);
     function checkPage($crntPage){
+        
         if(basename($_SERVER['PHP_SELF']) == $crntPage){
             return 'active';
         }else{

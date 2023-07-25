@@ -1,4 +1,4 @@
-<?php include dirname(__FILE__) . '\..\home\dashboard.php';?>
+<?php include dirname(__FILE__) . '/../home/dashboard.php';?>
 <h1>DEBUG SCRIPT MANAGER</h1>
 
 <script>
