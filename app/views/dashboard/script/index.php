@@ -1,5 +1,7 @@
 <div class="container-sm ">
-    <div class="me-auto ms-auto w-md-50">
+    <h2><strong>Index Script</strong></h2>
+    <hr>
+    <div class="me-auto ms-auto w-md-50 mt-3">
         <form method="POST">
             <div class="mb-3">
                 <label for="judul" class="form-label">Judul</label>

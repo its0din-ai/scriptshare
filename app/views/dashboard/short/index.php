@@ -1,16 +1,20 @@
 <div class="container-sm ">
-    <div class="card mx-auto" style="max-width: 540px;">
-        <div class="row g-0">
-            <div class="col-md-4">
-            <img src="/public/img/brand-lg.png" class="img-fluid rounded-start" alt="...">
+    <h2><strong>Shortlinks</strong></h2>
+    <hr>
+    <div class="me-auto ms-auto w-md-50 mt-3">
+        <form method="POST">
+            <div class="mb-3">
+                <label for="tujuan" class="form-label">Link yang sangat panjang</label>
+                <input type="text" class="form-control" id="tujuan" placeholder="https://domainyangsangatpanjang.com.jp/ditambah-dengan-parameter-yang-panjang-juga" name="tujuan">
             </div>
-            <div class="col-md-8">
-            <div class="card-body">
-                <h5 class="card-title">INI NANTI INDEX SHORTLINK</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+            <div class="hvr-bounce-in d-grid gap-2 w-25 me-auto ms-auto mt-3">
+                <button type="submit" class="btn btn-sm btn-light" name="submit">Short!</button>
             </div>
-            </div>
+        </form>
+    </div>
+    <div class="mx-auto mt-5 pt-5">
+        <div>
+            <a href="/manage/short" class="link-success"><h6>Manage Shortlinks</h6></a>
         </div>
-        </div>
+    </div>
 </div>

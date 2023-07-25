@@ -1,6 +1,4 @@
 <?php
-use App\Models\Script;
-use App\Models\ScriptModel;
 use App\Func\DB;
 
 class ScriptController

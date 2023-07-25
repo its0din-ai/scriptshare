@@ -1,7 +1,6 @@
 <?php
 namespace App\Models;
 
-require './app/func/DB.php';
 use App\Func\DB;
 
 class ScriptModel
@@ -51,6 +50,33 @@ class ScriptModel
 
     public function getKonten(){
         return $this->konten_script;
+    }
+
+    public static function getTotalPost($usrnm){
+        $db = DB::getInstance();
+        $query = "SELECT COUNT(*) FROM script_db WHERE uploader = '$usrnm'";
+        $stmt = $db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->fetch();
+        return $result[0];
+    }
+
+    public static function getAllScript(){
+        $db = DB::getInstance();
+        $query = "SELECT * FROM script_db ORDER BY tanggal DESC";
+        $stmt = $db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        return $result;
+    }
+
+    public static function getAllScriptBy($username){
+        $db = DB::getInstance();
+        $query = "SELECT * FROM script_db WHERE uploader = '$username' ORDER BY tanggal DESC";
+        $stmt = $db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        return $result;
     }
 
 }

@@ -1,11 +1,16 @@
 <?php
 
+require './app/controllers/AdminController.php';
 require './app/controllers/HomeController.php';
 require './app/controllers/DashboardController.php';
 require './app/controllers/ScriptController.php';
+require './app/controllers/ShortController.php';
 require './app/controllers/UserController.php';
+require './app/controllers/ManagerController.php';
 
 require './app/func/route.php';
+
+use App\Models\User;
 
 // Rute GET Biasa
 get('/', function() {
@@ -71,6 +76,8 @@ get('/logout', function() {
 
 
 // Rute ke fungsi-fungsi Fitur
+
+// DASHBOARD ROUTE
 get('/dashboard', function() {
     $dashboardController = new DashboardController();
     $dashboardController->index();
@@ -102,10 +109,27 @@ get('/dashboard/script/personal', function() {
     $dashboardController->personalIndex();
 });
 
-get('/dashboard/short', function() {
+get('/dashboard/shortlink', function() {
     $dashboardController = new DashboardController();
     $dashboardController->shortIndex();
 });
+
+post('/dashboard/shortlink', function() {
+    $dashboardController = new DashboardController();
+    $dashboardController->shortUpload();
+});
+
+get('/manage/short', function() {
+    $shortController = new ShortController();
+    $shortController->shortPersonal();
+});
+
+if ($_SERVER['REQUEST_URI'] == '/sh' || strpos($_SERVER['REQUEST_URI'], '/sh/') === 0) {
+    $slug = substr($_SERVER['REQUEST_URI'], 4);
+    $shortController = new ShortController();
+    $shortController->redirect($slug);
+}
+
 
 // Route untuk handle edit/delete script dan short
 if ($_SERVER['REQUEST_URI'] == '/script' || strpos($_SERVER['REQUEST_URI'], '/script/') === 0) {
@@ -163,12 +187,76 @@ post('/cekpass', function($request, $response) {
     return $response;
 });
 
-
-
-// Handling kalo Not Found
-get('/404', function() {
-    $homeController = new HomeController();
-    $homeController->notFound();
+// MANAGER ROUTE
+get('/manage/user', function() {
+    $adminController = new AdminController();
+    $adminController->index();
 });
-http_response_code(404);
-header('Location: /404');
+
+if ($_SERVER['REQUEST_URI'] == '/manage/user' || strpos($_SERVER['REQUEST_URI'], '/manage/user') === 0) {
+    $usrnm = substr($_SERVER['REQUEST_URI'], 13);
+    $adminController = new AdminController();
+    $adminController->editByAdmin($usrnm);
+}
+// post edit
+post('/update/user', function() {
+    // create new array of post data username, nama_lengkap, foto, password, roles
+    $crntUser = $_POST['crntUser'];
+    if($_POST['passBaru'] == "" && $_FILES['fotoBaru'] == ""){
+        $passUser = User::getParam('pass', $_POST['username']);
+        $profile = User::getParam('profile_path', $_POST['username']);
+        $dat = array($crntUser, $_POST['username'], $_POST['nama_baru'], $profile, $passUser, $_POST['roles']);
+        $adminController = new AdminController();
+        $adminController->update($dat);
+    }
+    else if($_POST['passBaru'] == ""){
+        $passUser = User::getParam('pass', $_POST['username']);
+        $dat = array($crntUser, $_POST['username'], $_POST['nama_baru'], $_FILES['fotoBaru'], $passUser, $_POST['roles']);
+        $adminController = new AdminController();
+        $adminController->update($dat);
+    }
+    else if($_FILES['fotoBaru'] == ""){
+        $profile = User::getParam('profile_path', $_POST['username']);
+        $dat = array($crntUser, $_POST['username'], $_POST['nama_baru'], $profile, $_POST['pass'], $_POST['roles']);
+        $adminController = new AdminController();
+        $adminController->update($dat);
+    }
+    else{
+        $dat = array($crntUser, $_POST['username'], $_POST['nama_baru'], $_FILES['fotoBaru'], $_POST['passBaru'], $_POST['roles']);
+        $adminController = new AdminController();
+        $adminController->update($dat);
+    }
+});
+
+get('/delete/user', function() {
+    header('Location: /manage/user');
+});
+
+if ($_SERVER['REQUEST_URI'] == '/delete/user' || strpos($_SERVER['REQUEST_URI'], '/delete/user') === 0) {
+    $usrnm = substr($_SERVER['REQUEST_URI'], 13);
+    $adminController = new AdminController();
+    $adminController->deleteAkun($usrnm);
+    
+};
+
+get('/manage/script', function() {
+    $managerController = new ManagerController();
+    $managerController->indexScript();
+});
+
+get('/manage/short', function() {
+    $managerController = new ManagerController();
+    $managerController->indexShort();
+});
+
+get('/public', function() {
+    http_response_code(403);
+});
+
+// // Handling kalo Not Found
+// get('/404', function() {
+//     $homeController = new HomeController();
+//     $homeController->notFound();
+// });
+// http_response_code(404);
+// header('Location: /404');

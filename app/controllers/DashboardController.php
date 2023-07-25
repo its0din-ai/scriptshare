@@ -1,6 +1,5 @@
 <?php
 
-
 class DashboardController
 {
     public function index()
@@ -53,8 +52,6 @@ class DashboardController
         }
     }
 
-
-
     public function shortIndex(){
         if(isset($_SESSION['users'])){
                 $content = dirname(__FILE__) . '/../views/dashboard/short/index.php';
@@ -64,5 +61,16 @@ class DashboardController
             header('Location: /login');
         }
     }
+
+    public function shortUpload(){
+        if(isset($_SESSION['users'])){
+            $username = $_SESSION['users']['username'];
+            $shortController = new ShortController();
+            $shortController->upload($username);
+        }else{
+            header('Location: /login');
+        }
+    }
+
 
 }

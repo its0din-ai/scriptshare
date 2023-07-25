@@ -1,19 +1,37 @@
 <?php
+require_once './app/models/ScriptModel.php';
+require_once './app/models/ShortModel.php';
+
+use App\Models\ScriptModel;
+use App\Models\ShortModel;
 use App\Models\User;
-
-// use app\models\User;
-// require './app/models/User.php';
-
 use App\Func\DB;
 
 class UserController
 {
     public function index($usrnm)
     {
-        $content = dirname(__FILE__) . '/../views/dashboard/user/edit.php';
-        $judul = 'Edit Profil';
-        $userdata = User::where('username', $usrnm);
-        include dirname(__FILE__) . '/../views/layout/app.php';
+        if(isset($_SESSION['users'])){
+            $content = dirname(__FILE__) . '/../views/dashboard/user/edit.php';
+            $judul = 'Edit Profil';
+            $userdata = User::where('username', $usrnm);
+            include dirname(__FILE__) . '/../views/layout/app.php';
+        }else{
+            header('Location: /login');
+        }
+
+    }
+
+    public function totalScript(){
+        $usrnm = $_SESSION['users']['username'];
+        $totalScript = ScriptModel::getTotalPost($usrnm);
+        return $totalScript;
+    }
+
+    public function totalShort(){
+        $usrnm = $_SESSION['users']['username'];
+        $totalScript = ShortModel::getTotalShort($usrnm);
+        return $totalScript;
     }
 
     public function cekPasswd($passwd, $usrnm){
