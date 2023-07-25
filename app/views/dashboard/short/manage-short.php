@@ -19,8 +19,8 @@
                     <tr>
                         <th scope="row">' . $short['id'] . '</th>
                         <td>' . $short['owner'] . '</td>
-                        <td><a target="_blank" href="http://scriptshare.tech/sh/' . $short['short_slug'] . '"</a>' . $short['short_slug'] . '</td>
-                        <td><a target="_blank" href="' . $short['tujuan'] . '">' . $short['tujuan'] . '</a></td>
+                        <td><a class="hvr-bounce-in link-light" style="text-decoration: none;" target="_blank" href="http://scriptshare.tech/sh/' . $short['short_slug'] . '"</a>' . $short['short_slug'] . '</td>
+                        <td><a class="hvr-bounce-in link-light" target="_blank" href="' . $short['tujuan'] . '">' . $short['tujuan'] . '</a></td>
                         
                         <td>
                             <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
