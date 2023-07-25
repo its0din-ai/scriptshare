@@ -62,8 +62,8 @@ a {
 
 /* Home */
 .bg-hero {
-  background-color : var(--text-span)!important;
-  color: var(--text-span);
+  background-color : var(--text-span) !important;
+  /* color: var(--text-span); */
 }
 
 

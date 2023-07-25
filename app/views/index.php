@@ -7,11 +7,11 @@
             </div>
         </div>
 
-        <div class="card mx-auto" style="max-width: 540px;">
+        <div class="card mx-auto bg-hero" style="max-width: 540px; opacity: 60%;">
             <div class="row g-0">
 
                 <div class="col-md-8">
-                    <div class="card-body bg-hero">
+                    <div class="card-body">
                         <h5 class="card-title">INI NANTI RUMAH RUBAH</h5>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
                             additional content. This content is a little bit longer.</p>
