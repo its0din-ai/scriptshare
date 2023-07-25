@@ -21,8 +21,8 @@
                 <ul style="list-style: none; padding-left: 0px;">
                     <li class=""><a href="https://github.com/its0din-ai/scriptshare" target="_blank" class="text-warning hvr-bounce-in" >GitHub Repo</a></li>
                     <li class=""><a href="https://s.id/encrypt0r" target="_blank" class="text-warning hvr-bounce-in" >odin@microsite</a></li>
-                    <li class=""><a href="https://instagram.com/" target="_blank" class="text-warning hvr-bounce-in" >p2@instagram</a></li>
-                    <li class=""><a href="https://linkedin.com/" target="_blank" class="text-warning hvr-bounce-in" >p3@linkedin</a></li>
+                    <li class=""><a href="https://instagram.com/" target="_blank" class="text-warning hvr-bounce-in" >Hyuga@instagram</a></li>
+                    <li class=""><a href="https://linkedin.com/" target="_blank" class="text-warning hvr-bounce-in" >Aji@instagram</a></li>
                 </ul>
             </div>
             <div class="col-md-4">
