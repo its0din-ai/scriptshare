@@ -4,6 +4,14 @@ body {
   font-family: 'Poppins', sans-serif !important;
 }
 
+/* Color Pallet */
+:root {
+  --body-color: #212529;
+  --text-color: #ADB5BD;
+  --text-white: #fff;
+  --text-blue: #00bfff;
+  --text-span: #F9BD08;
+
 ::-webkit-scrollbar {
   width: 3px;
 }
@@ -52,7 +60,15 @@ a {
   transform: scale(1.1);
 }
 
-/* background */
+/* Home */
+.bg-hero {
+  background-color : var(--text-span)!important;
+  color: var(--text-span);
+}
+
+
+
+/* background animation */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
 .bgAnimation {
@@ -67,9 +83,8 @@ a {
   background: #212529;
   filter: saturate(2);
   overflow: hidden;
-  z-index: -1;
+  z-index: 0;
 }
-
 
 .colorBox {
   z-index: 2;
