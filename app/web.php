@@ -208,8 +208,18 @@ post('/update/user', function() {
         $adminController = new AdminController();
         $adminController->update($dat);
     }
-
 });
+
+get('/delete/user', function() {
+    header('Location: /manage/user');
+});
+
+if ($_SERVER['REQUEST_URI'] == '/delete/user' || strpos($_SERVER['REQUEST_URI'], '/delete/user') === 0) {
+    $usrnm = substr($_SERVER['REQUEST_URI'], 13);
+    $adminController = new AdminController();
+    $adminController->deleteAkun($usrnm);
+    
+};
 
 get('/manage/script', function() {
     $managerController = new ManagerController();
@@ -225,10 +235,10 @@ get('/public', function() {
     http_response_code(403);
 });
 
-// Handling kalo Not Found
-get('/404', function() {
-    $homeController = new HomeController();
-    $homeController->notFound();
-});
-http_response_code(404);
-header('Location: /404');
+// // Handling kalo Not Found
+// get('/404', function() {
+//     $homeController = new HomeController();
+//     $homeController->notFound();
+// });
+// http_response_code(404);
+// header('Location: /404');

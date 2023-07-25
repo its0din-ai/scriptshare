@@ -54,7 +54,7 @@ class User
 
     public static function allUser(){
         $db = DB::getInstance();
-        $query = "SELECT * FROM users";
+        $query = "SELECT * FROM users ORDER BY roles";
         $stmt = $db->prepare($query);
         $stmt->execute();
         $result = $stmt->fetchAll();
@@ -95,6 +95,18 @@ class User
         $db = DB::getInstance();
         $stmt = $db->prepare('UPDATE users SET username = :username, nama_pengguna = :namaBaru, profile_path = :profile_path, pass = :pass, roles = :roles WHERE username = :crntUser');
         $stmt->execute([':username' => $username, ':namaBaru' => $namaBaru, ':profile_path' => $profile_path, ':pass' => $password, ':roles' => $roles, ':crntUser' => $crntUser]);
+        $err = $stmt->errorInfo();
+        if ($err[0] != '00000') {
+            echo $err[2];
+        }else{
+            return true;
+        }
+    }
+
+    public static function deleteUserByAdmin($username){
+        $db = DB::getInstance();
+        $stmt = $db->prepare('DELETE FROM users WHERE username = :username');
+        $stmt->execute([':username' => $username]);
         $err = $stmt->errorInfo();
         if ($err[0] != '00000') {
             echo $err[2];

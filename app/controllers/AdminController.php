@@ -100,5 +100,27 @@ class AdminController
         }
     }
 
+    public function deleteAkun($username){
+        if($_SESSION['users']['roles'] == 'admin'){
+            $content = dirname(__FILE__) . '/../views/dashboard/user/hapus.php';
+            $judul = 'Edit User';
+            $this->deleteByAdmin($username);
+            include dirname(__FILE__) . '/../views/layout/app.php';
+        }
+    }
+
+    public function deleteByAdmin($username){
+        if($_SESSION['users']['roles'] == 'admin'){
+            $deleteKueri = User::deleteUserByAdmin($username);
+            if($deleteKueri){
+                $_SESSION['sukses-delete'] = $username;
+                header('Location: /manage/user');
+            }else{
+                $_SESSION['gagal-delete'] = true;
+                header('Location: /manage/user');
+            }
+        }
+    }
+
 
 }
