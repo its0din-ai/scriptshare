@@ -65,7 +65,7 @@
                             <li><a class="dropdown-item" href="/manage/shortlink">Manage Shortlinks</a></li>';
                         }
                         echo '<li><a class="dropdown-item" href="/dashboard/script">Share a Scripts</a></li>
-                        <li><a class="dropdown-item" href="/dashboard/short">Short a Links</a></li></ul>
+                        <li><a class="dropdown-item" href="/dashboard/shortlink">Short a Links</a></li></ul>
                         </li>';
                     }
                     ?>

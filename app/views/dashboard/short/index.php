@@ -14,7 +14,7 @@
     </div>
     <div class="mx-auto mt-5 pt-5">
         <div>
-            <a href="/shortlink" class="link-success"><h6>Manage Shortlinks</h6></a>
+            <a href="/manage/short" class="link-success"><h6>Manage Shortlinks</h6></a>
         </div>
     </div>
 </div>

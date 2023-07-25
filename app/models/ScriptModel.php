@@ -61,4 +61,22 @@ class ScriptModel
         return $result[0];
     }
 
+    public static function getAllScript(){
+        $db = DB::getInstance();
+        $query = "SELECT * FROM script_db ORDER BY tanggal DESC";
+        $stmt = $db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        return $result;
+    }
+
+    public static function getAllScriptBy($username){
+        $db = DB::getInstance();
+        $query = "SELECT * FROM script_db WHERE uploader = '$username' ORDER BY tanggal DESC";
+        $stmt = $db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        return $result;
+    }
+
 }

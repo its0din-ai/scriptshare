@@ -4,6 +4,7 @@ require './app/controllers/AdminController.php';
 require './app/controllers/HomeController.php';
 require './app/controllers/DashboardController.php';
 require './app/controllers/ScriptController.php';
+require './app/controllers/ShortController.php';
 require './app/controllers/UserController.php';
 require './app/controllers/ManagerController.php';
 
@@ -108,10 +109,27 @@ get('/dashboard/script/personal', function() {
     $dashboardController->personalIndex();
 });
 
-get('/dashboard/short', function() {
+get('/dashboard/shortlink', function() {
     $dashboardController = new DashboardController();
     $dashboardController->shortIndex();
 });
+
+post('/dashboard/shortlink', function() {
+    $dashboardController = new DashboardController();
+    $dashboardController->shortUpload();
+});
+
+get('/manage/short', function() {
+    $shortController = new ShortController();
+    $shortController->shortPersonal();
+});
+
+if ($_SERVER['REQUEST_URI'] == '/sh' || strpos($_SERVER['REQUEST_URI'], '/sh/') === 0) {
+    $slug = substr($_SERVER['REQUEST_URI'], 4);
+    $shortController = new ShortController();
+    $shortController->redirect($slug);
+}
+
 
 // Route untuk handle edit/delete script dan short
 if ($_SERVER['REQUEST_URI'] == '/script' || strpos($_SERVER['REQUEST_URI'], '/script/') === 0) {
