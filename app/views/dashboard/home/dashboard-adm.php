@@ -1,4 +1,4 @@
-<?php include dirname(__FILE__) . 'dashboard.php';?>
+<?php include dirname(__FILE__) . '/dashboard.php';?>
 
     <div class="col-9">
         <div class="card mb-3" style="border-radius: .5rem;">
