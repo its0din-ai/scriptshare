@@ -19,17 +19,6 @@ body {
   background-clip: content-box;
 }
 
-.nav-link.active {
-  border-bottom: 3px solid #00bfff;
-  border-radius: 5px;
-  background: #252c33;
-}
-
-.nav-link.active:hover {
-  border-bottom: 3px solid #aeaeae;
-  background: #212529;
-}
-
 a {
   color: #9cd4d5;
 }
@@ -85,12 +74,12 @@ a {
   filter: brightness(1.1);
   transition: 2s ease;
   position: relative;
-  margin: 2 px;
-  background: #1d1d1d;
+  margin: 2px;
+  background: #212529;
 }
 
 .colorBox:hover {
-  background: #0dcaf0;
+  background: #00bfff;
   transition-duration: 0s;
 }
 
@@ -100,7 +89,7 @@ a {
   left: 0;
   width: 100%;
   height: 40px;
-  background: #dfdcd4;
+  background: #00bfff;
   filter: blur(60px);
   animation: animBack 6s linear infinite;
 }
