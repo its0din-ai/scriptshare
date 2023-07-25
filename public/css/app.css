@@ -67,7 +67,9 @@ a {
   background: #212529;
   filter: saturate(2);
   overflow: hidden;
+  z-index: -1;
 }
+
 
 .colorBox {
   z-index: 2;
