@@ -82,7 +82,7 @@ a {
   z-index: 2;
   filter: brightness(1.1);
   transition: 2s ease;
-  position; relative;
+  position: relative;
   margin: 2 px;
   background: #1d1d1d;
 }
