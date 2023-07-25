@@ -7,10 +7,11 @@ body {
 /* Color Pallet */
 :root {
   --body-color: #212529;
-  --text-color: #ADB5BD;
+  --bg-color: #363c42;
+  --text-color: #adb5bd;
   --text-white: #fff;
   --text-blue: #00bfff;
-  --text-span: #F9BD08;
+  --text-span: #f9bd08;
 }
 
 ::-webkit-scrollbar {
@@ -22,7 +23,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #363c42;
+  background-color: var(--bg-color);
   border-radius: 20px;
   border: none;
   background-clip: content-box;
@@ -63,11 +64,13 @@ a {
 
 /* Home */
 .bg-hero {
-  background-color : var(--text-span) !important;
-  /* color: var(--text-span); */
+  background-color: var(--bg-color) !important;
+  opacity: 0.8;
 }
 
-
+.card-body p {
+  text-color: var(--text-white) !important;
+}
 
 /* background animation */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');

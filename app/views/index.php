@@ -7,13 +7,14 @@
             </div>
         </div>
 
-        <div class="card mx-auto bg-hero" style="max-width: 540px; opacity: 60%;">
+        <div class="card mx-auto bg-hero text-light" style="max-width: 740px;">
             <div class="row g-0">
 
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title">INI NANTI RUMAH RUBAH</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                        <h1 class="card-title">INI NANTI RUMAH RUBAH</h1>
+                        <p class="card-text">This is a wider card with supporting text below as a natural
+                            lead-in to
                             additional content. This content is a little bit longer.</p>
                         <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
                     </div>
