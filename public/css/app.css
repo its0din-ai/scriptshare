@@ -19,13 +19,13 @@ body {
   background-clip: content-box;
 }
 
-.nav-link.active{
+.nav-link.active {
   border-bottom: 3px solid #00bfff;
   border-radius: 5px;
-  background: #252C33;
+  background: #252c33;
 }
 
-.nav-link.active:hover{
+.nav-link.active:hover {
   border-bottom: 3px solid #aeaeae;
   background: #212529;
 }
@@ -90,7 +90,7 @@ a {
 }
 
 .colorBox:hover {
-  background: #dfdcd4;
+  background: #0dcaf0;
   transition-duration: 0s;
 }
 
