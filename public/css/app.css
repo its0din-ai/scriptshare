@@ -9,6 +9,7 @@ body {
   --bg-color: #363c42;
   --body-color: #212529;
   --text-color: #adb5bd;
+  --dark: #23272f;
   --text-white: #fff;
   --blue: #00bfff;
   --yellow: #f9bd08;
@@ -87,7 +88,7 @@ a {
   background: var(--body-color);
   filter: saturate(2);
   overflow: hidden;
-  z-index: 0;
+  z-index: -1;
 }
 
 .colorBox {
@@ -145,9 +146,12 @@ section.hero .text p {
   color: var(--text-white);
 }
 
-section.hero .buttons btn {
+section.hero .btn {
   font-size: 17px;
   font-weight: 700;
-  line-height: 44px;
-  padding: 12px 24px 12px 24px;
+}
+
+section.hero .btn-primary {
+  background-color: var(--yellow);
+  color: var(--dark);
 }
