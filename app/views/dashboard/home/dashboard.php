@@ -6,10 +6,10 @@
     </div>
     <div class="col-9">
     <?php
-    echo basename($_SERVER['PHP_SELF']);
+    echo parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
     function checkPage($crntPage){
         
-        if(basename($_SERVER['PHP_SELF']) == $crntPage){
+        if(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) == $crntPage){
             return 'active';
         }else{
             return 'hvr-shrink';
@@ -17,14 +17,14 @@
     }
     ?>
         <nav class="nav mb-3">
-            <a class="nav-link text-warning <?php echo checkPage('dashboard'); ?>" aria-current="page" href="/dashboard">Profile</a>
+            <a class="nav-link text-warning <?php echo checkPage('/dashboard'); ?>" aria-current="page" href="/dashboard">Profile</a>
             <?php
                 if($_SESSION['users']['roles'] == "admin"){
-                    echo '<a class="nav-link text-warning '.checkPage('user').' " href="/manage/user">Manage User</a>';
+                    echo '<a class="nav-link text-warning '.checkPage('/manage/user').' " href="/manage/user">Manage User</a>';
                 }
             ?>
-            <a class="nav-link text-warning <?php echo checkPage('script'); ?>" href="/manage/script">Manage Script</a>
-            <a class="nav-link text-warning <?php echo checkPage('short'); ?>" href="/manage/short">Manage Short</a>
+            <a class="nav-link text-warning <?php echo checkPage('/manage/script'); ?>" href="/manage/script">Manage Script</a>
+            <a class="nav-link text-warning <?php echo checkPage('/manage/short'); ?>" href="/manage/short">Manage Short</a>
         </nav>
     </div>
 
