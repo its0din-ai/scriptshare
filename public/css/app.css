@@ -123,3 +123,31 @@ a {
     top: 120%;
   }
 }
+
+/* -------------------------------------------------
+Hero Section
+---------------------------------------------------- */
+section.hero {
+  padding: 30px 0;
+}
+
+section.hero .text h1 {
+  font-weight: 500;
+  font-size: 52px;
+  line-height: 72px;
+  padding-top: 20px;
+  color: var(--text-white);
+}
+
+section.hero .text p {
+  font-size: 30px;
+  line-height: 44px;
+  color: var(--text-white);
+}
+
+section.hero .buttons btn {
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 44px;
+  padding: 12px 24px 12px 24px;
+}
