@@ -104,7 +104,6 @@ class HomeController
         $stmt = $db->prepare('SELECT * FROM users WHERE username = :username');
         $stmt->execute([':username' => $username]);
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        
         if ($result && password_verify($password, $result['pass'])) {
             $user = new User($result['username'], $result['nama_pengguna'], $result['profile_path'], $result['pass'], $result['roles']);
             $status = true;
