@@ -39,18 +39,6 @@ class DashboardController
         }
     
     }
-    public function personalIndex(){
-        if(isset($_SESSION['users'])){
-                $content = dirname(__FILE__) . '/../views/dashboard/script/personal.php';
-                $judul = $_SESSION['users']['username'] . ' Script';
-                $scriptController = new ScriptController();
-                $prv = $scriptController->getPrivatePost();
-                
-                include dirname(__FILE__) . '/../views/layout/app.php';
-        }else{
-            header('Location: /login');
-        }
-    }
 
     public function shortIndex(){
         if(isset($_SESSION['users'])){

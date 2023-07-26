@@ -104,11 +104,6 @@ post('/dashboard/script', function() {
     $scriptController->upload($data);
 });
 
-get('/dashboard/script/personal', function() {
-    $dashboardController = new DashboardController();
-    $dashboardController->personalIndex();
-});
-
 get('/dashboard/shortlink', function() {
     $dashboardController = new DashboardController();
     $dashboardController->shortIndex();
@@ -126,18 +121,14 @@ get('/manage/short', function() {
 
 
 
-// if($req[1] == "sh"){
-//     $slug = $req[2];
-//     $shortController = new ShortController();
-//     $shortController->redirect($slug);
-// }
-
-get('/sh', function() {
-    $URI = $_SERVER['REQUEST_URI'];
-    $_req = explode('/', $URI);
+$URI = $_SERVER['REQUEST_URI'];
+$_req = explode('/', $URI);
+if($_req[1] == "sh"){
+    $slug = $_req[2];
     $shortController = new ShortController();
-    $shortController->debug($_req);
-});
+    $shortController->redirect($slug);
+}
+
 
 // Route untuk handle edit/delete script dan short
 if ($_SERVER['REQUEST_URI'] == '/script' || strpos($_SERVER['REQUEST_URI'], '/script/') === 0) {
@@ -263,3 +254,4 @@ get('/404', function() {
     $homeController->notFound();
 });
 http_response_code(404);
+header('location: /404');

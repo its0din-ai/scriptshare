@@ -5,7 +5,7 @@
                 if($_SESSION == null){
                     echo '<a href="/" class="link link-success"><h6>Kembali</h6></a>';
                 }else{
-                    echo '<a href="/dashboard/script/personal" class="link link-success"><h6>Kembali</h6></a>';
+                    echo '<a href="/manage/script" class="link link-success"><h6>Kembali</h6></a>';
                 }
             ?>
             <h6>Detail Script</h6>

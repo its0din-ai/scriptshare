@@ -53,7 +53,12 @@ Class ShortModel{
         $stmt = $db->prepare($query);
         $stmt->execute();
         $result = $stmt->fetch();
-        return $result[0];
+        // check if result is empty
+        if($result){
+            return $result[0];
+        }else{
+            return false;
+        }
     }
 
 }

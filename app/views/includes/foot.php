@@ -28,7 +28,7 @@
                 <ul style="list-style: none; padding-left: 0px;">
 
                     <li>
-                        <a class="facebook" href="https://facebook.com/">
+                        <a class="facebook" href="https://facebook.com/" target="_blank">
                             <span></span>
                             <span></span>
                             <span></span>
@@ -37,7 +37,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="twitter" href="https://x.com/">
+                        <a class="twitter" href="https://x.com/" target="_blank">
                             <span></span>
                             <span></span>
                             <span></span>
@@ -46,7 +46,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="instagram" href="https://instagram.com/">
+                        <a class="instagram" href="https://instagram.com/" target="_blank">
                             <span></span>
                             <span></span>
                             <span></span>
@@ -55,7 +55,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="github" href="https://github.com/its0din-ai/scriptshare">
+                        <a class="github" href="https://github.com/its0din-ai/scriptshare" target="_blank">
                             <span></span>
                             <span></span>
                             <span></span>

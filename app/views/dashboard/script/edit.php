@@ -1,5 +1,6 @@
 <div class="container-sm ">
     <div class="me-auto ms-auto w-md-50">
+        <a href="/manage/script" class="link link-success"><h6>Kembali</h6></a>
         <form method="POST" action="/update/sc">
             <div class="mb-3">
                 <label for="slug" class="form-label">Link</label>
