@@ -16,15 +16,15 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 3px;
+  width: 0.2rem;
 }
 
 ::-webkit-scrollbar-track {
-  background-color: transparent;
+  background-color: var(--body-color);
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--bg-color);
+  background-color: var(--yellow);
   border-radius: 20px;
   border: none;
   background-clip: content-box;
@@ -124,6 +124,20 @@ a {
     top: 120%;
   }
 }
+/* -------------------------------------------------
+Navbar
+---------------------------------------------------- */
+/* main {
+  margin-left: 5rem;
+  padding: 1rem;
+}
+
+.navbar {
+  width: 5rem;
+  height: 100vh;
+  position: fixed;
+  background-color: var(--body-color);
+} */
 
 /* -------------------------------------------------
 Hero Section
@@ -156,40 +170,39 @@ section.hero .btn-primary {
   color: var(--dark);
 }
 
-.abt-sec{
+.abt-sec {
   margin-top: 100px;
-  background: linear-gradient(rgba(39,45,52,.2), 40%, rgba(33, 37, 41, 1));
+  background: linear-gradient(rgba(39, 45, 52, 0.2), 40%, rgba(33, 37, 41, 1));
 }
 
-.abt{
+.abt {
   background-color: transparent !important;
 }
 
-.fut{
-  background: linear-gradient(rgba(33, 37, 41, .9), 10%, rgba(33, 37, 41, 1));
+.fut {
+  background: linear-gradient(rgba(33, 37, 41, 0.9), 10%, rgba(33, 37, 41, 1));
 }
 
-.txt-pfp{
-  background: linear-gradient(rgba(33, 37, 41, .5), 60%, rgba(33, 37, 41, 1));
+.txt-pfp {
+  background: linear-gradient(rgba(33, 37, 41, 0.5), 60%, rgba(33, 37, 41, 1));
   color: var(--text-white);
   font-size: 20px;
   font-weight: 600;
   transition: 0.5s;
 }
 
-.txt-pfp .nim{
+.txt-pfp .nim {
   font-size: 15px;
   font-weight: 400;
 }
 
-.txt-pfp:hover{
-  background: linear-gradient(rgba(33, 37, 41, .5), 60%, rgba(33, 37, 41, 1));
+.txt-pfp:hover {
+  background: linear-gradient(rgba(33, 37, 41, 0.5), 60%, rgba(33, 37, 41, 1));
   transition: 0.5s;
   opacity: 0.5;
-
 }
 
-.card-pfp{
-  border: 2px solid #DFDCD4;
+.card-pfp {
+  border: 2px solid #dfdcd4;
   border-radius: 5px;
 }
