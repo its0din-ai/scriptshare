@@ -165,11 +165,9 @@ section.hero .btn {
   font-weight: 700;
 }
 
-section.hero .btn-primary {
-  background-color: var(--yellow);
-  color: var(--dark);
-}
+/* -------------------------------------------------
 
+---------------------------------------------------- */
 .abt-sec {
   margin-top: 100px;
   background: linear-gradient(rgba(39, 45, 52, 0.2), 40%, rgba(33, 37, 41, 1));
