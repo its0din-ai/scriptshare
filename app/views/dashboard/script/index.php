@@ -25,7 +25,7 @@
     </div>
     <div class="mx-auto mt-5 pt-5">
         <div>
-            <a href="/dashboard/script/personal" class="link-success"><h6>Script Personal</h6></a>
+            <a href="/manage/script" class="link-success"><h6>Script Personal</h6></a>
             <h6>Script Publik</h6>
         </div>
         <hr>

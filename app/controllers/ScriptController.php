@@ -77,8 +77,6 @@ class ScriptController
         include dirname(__FILE__) . '/../views/layout/app.php';
 
         return $detail;
-        // header('Location: /dashboard/script');
-    
     }
 
     public function update(){
@@ -91,7 +89,7 @@ class ScriptController
         $stmt->bindParam(':slug', $_POST['slug']);
         $stmt->execute();
 
-        header('Location: /script/' . $_POST['slug']);
+        header('Location: /manage/script');
     }
     
     public function hapus_script($slug){

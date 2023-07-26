@@ -104,11 +104,6 @@ post('/dashboard/script', function() {
     $scriptController->upload($data);
 });
 
-get('/dashboard/script/personal', function() {
-    $dashboardController = new DashboardController();
-    $dashboardController->personalIndex();
-});
-
 get('/dashboard/shortlink', function() {
     $dashboardController = new DashboardController();
     $dashboardController->shortIndex();
