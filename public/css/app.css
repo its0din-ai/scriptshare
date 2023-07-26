@@ -175,6 +175,127 @@ section.hero .btn {
   font-size: 17px;
   font-weight: 700;
 }
+/* -------------------------------------------------
+Sosial Media Icon Animated
+---------------------------------------------------- */
+.sosmed ul {
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  margin: 3rem 5.3rem ;
+  padding:0;
+  display:flex;
+}
+.sosmed ul li {
+  list-style:none;
+}
+.sosmed ul li a {
+  display:block;
+  position:relative;
+  width:50px;
+  height:50px;
+  line-height:50px;
+  font-size:20px;
+  text-align:center;
+  text-decoration:none;
+  color:var(--text-color);
+  margin: 0 10px;
+  transition:.5s;
+}
+.sosmed ul li a span {
+  position:absolute;
+  transition: transform .5s;
+}
+.sosmed ul li a span:nth-child(1),
+ul li a span:nth-child(3){
+  width:100%;
+  height:3px;
+  background:var(--text-color);
+}
+.sosmed ul li a span:nth-child(1) {
+  top:0;
+  left:0;
+  transform-origin: right;
+}
+.sosmed ul li a:hover span:nth-child(1) {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition:transform .5s;
+}
+
+.sosmed ul li a span:nth-child(3) {
+  bottom:0;
+  left:0;
+  transform-origin: left;
+}
+.sosmed ul li a:hover span:nth-child(3) {
+  transform: scaleX(0);
+  transform-origin: right;
+  transition:transform .5s;
+}
+
+.sosmed ul li a span:nth-child(2),
+ul li a span:nth-child(4){
+  width:3px;
+  height:100%;
+  background:#404040;
+}
+.sosmed ul li a span:nth-child(2) {
+  top:0;
+  left:0;
+  transform:scale(0);
+  transform-origin: bottom;
+}
+.sosmed ul li a:hover span:nth-child(2) {
+  transform: scale(1);
+  transform-origin: top;
+  transition:transform .5s;
+}
+.sosmed ul li a span:nth-child(4) {
+  top:0;
+  right:0;
+  transform:scale(0);
+  transform-origin: top;
+}
+.sosmed ul li a:hover span:nth-child(4) {
+  transform: scale(1);
+  transform-origin: bottom;
+  transition:transform .5s;
+}
+
+.sosmed .facebook:hover {
+  color: #3b5998;
+}
+.sosmed .facebook:hover span { 
+  background: #3b5998;
+}
+.sosmed .twitter:hover {
+  color: #1da1f2;
+}
+.sosmed .twitter:hover span { 
+  background: #1da1f2;
+}
+.sosmed .instagram:hover {
+  color: #bc2a8d;
+}
+.sosmed .instagram:hover span { 
+  background: #bc2a8d;
+}
+.sosmed .github:hover {
+  color: var(--text-white);
+}
+.sosmed .github:hover span { 
+  background: var(--text-white);
+}
+.sosmed ul li a .twitter {
+  color: #1da1f2;
+}
+.sosmed ul li a:hover:nth-child(3) {
+  color: #bc2a8d;
+}
+.sosmed ul li a:hover:nth-child(4) {
+  color: var(--text-white);
+}
 
 /* -------------------------------------------------
 

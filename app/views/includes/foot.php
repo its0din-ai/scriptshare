@@ -23,18 +23,48 @@
                             class="text-info hvr-bounce-in">Hover.css</a></li>
                 </ul>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 sosmed">
                 <h5 class="text-uppercase mt-4"><strong>Media</strong></h5>
                 <ul style="list-style: none; padding-left: 0px;">
-                    <li class=""><a href="https://github.com/its0din-ai/scriptshare" target="_blank"
-                            class="text-warning hvr-bounce-in">GitHub Repo</a></li>
-                    <li class=""><a href="https://s.id/encrypt0r" target="_blank"
-                            class="text-warning hvr-bounce-in">odin@microsite</a></li>
-                    <li class=""><a href="https://instagram.com/" target="_blank"
-                            class="text-warning hvr-bounce-in">Hyuga@instagram</a></li>
-                    <li class=""><a href="https://linkedin.com/" target="_blank"
-                            class="text-warning hvr-bounce-in">Aji@instagram</a></li>
+
+                    <li>
+                        <a class="facebook" href="https://facebook.com/">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <i class="ri-facebook-fill" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="twitter" href="https://x.com/">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <i class="ri-twitter-fill" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="instagram" href="https://instagram.com/">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <i class="ri-instagram-fill" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="github" href="https://github.com/its0din-ai/scriptshare">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <i class="ri-github-fill" aria-hidden="true"></i>
+                        </a>
+                    </li>
                 </ul>
+
             </div>
             <div class="col-md-4">
                 <h5 class="text-uppercase mt-4"><strong>SCRIPTSHARE</strong></h5>
