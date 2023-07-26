@@ -60,11 +60,7 @@
                             <li><a class="dropdown-item" href="/dashboard">Profile</a></li>
                             
                             ';
-                        if ($_SESSION['users']['roles'] === 'admin') {
-                            echo '<li><a class="dropdown-item" href="/manage/user">Manage Users</a></li>
-                            <li><a class="dropdown-item" href="/manage/script">Manage Scripts</a></li>
-                            <li><a class="dropdown-item" href="/manage/shortlink">Manage Shortlinks</a></li>';
-                        }
+                            
                         echo '<li><a class="dropdown-item" href="/dashboard/script">Share a Scripts</a></li>
                         <li><a class="dropdown-item" href="/dashboard/shortlink">Short a Links</a></li></ul>
                         </li>';

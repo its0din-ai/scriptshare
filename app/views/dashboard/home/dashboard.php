@@ -6,10 +6,11 @@
     </div>
     <div class="col-9">
     <?php
+    echo parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
     function checkPage($crntPage){
         
         if(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) == $crntPage){
-            return 'active';
+            return 'hvr-active';
         }else{
             return 'hvr-shrink';
         }
