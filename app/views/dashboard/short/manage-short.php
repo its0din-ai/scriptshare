@@ -15,6 +15,13 @@
         <tbody>
             <?php
                 foreach ($data as $short) {
+                    // check if 'tujuan' have http:// or https://
+                    if (strpos($short['tujuan'], 'http://') !== false || strpos($short['tujuan'], 'https://') !== false) {
+                        continue;
+                    } else {
+                        $short['tujuan'] = 'http://' . $short['tujuan'];
+                    }
+
                     echo '
                     <tr>
                         <th scope="row">' . $short['id'] . '</th>
