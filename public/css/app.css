@@ -54,8 +54,6 @@ body {
   }
 }
 
-
-
 a {
   color: var(--blue);
 }
@@ -178,7 +176,7 @@ Navbar
 Form login 
 ---------------------------------------------------- */
 .box-area {
-  width: 930px;
+  /* width: 930px; */
   background-color: var(--bg-color);
 }
 

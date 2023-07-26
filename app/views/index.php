@@ -8,11 +8,11 @@
 
 
         <section class="hero text-center" id="">
-            <div class="container">
+            <div class="container mb-5">
                 <!-- image  -->
                 <img src="/public/img/fav.png" width="112" alt="hero-img">
                 <!-- Text -->
-                <div class="text">
+                <div class="text mb-5">
                     <h1 class="display-4">Scriptshare</h1>
                     <p>Bersama kami, bagikan tulisan Anda disini</p>
                 </div>
@@ -38,7 +38,7 @@
             <h1 class="text-white">Profiles</h1>
         </div>
         <div class="row">
-            <div class="col-md-4 mb-3 mb-md-0">
+            <div class="col-md-4 mb-3 mb-md-0 ">
                 <div class="card card-pfp">
                     <img src="/public/img/pfp.png" class="card-img" alt="profil">
                     <div class="card-img-overlay align-items-end txt-pfp">
