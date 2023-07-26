@@ -124,15 +124,20 @@ get('/manage/short', function() {
     $shortController->shortPersonal();
 });
 
-$URI = $_SERVER['REQUEST_URI'];
-$req = explode('/', $URI);
 
-if($req[1] == "sh"){
-    $slug = $req[2];
+
+// if($req[1] == "sh"){
+//     $slug = $req[2];
+//     $shortController = new ShortController();
+//     $shortController->redirect($slug);
+// }
+
+get('/sh', function() {
+    $URI = $_SERVER['REQUEST_URI'];
+    $_req = explode('/', $URI);
     $shortController = new ShortController();
-    $shortController->redirect($slug);
-}
-
+    $shortController->debug($_req);
+});
 
 // Route untuk handle edit/delete script dan short
 if ($_SERVER['REQUEST_URI'] == '/script' || strpos($_SERVER['REQUEST_URI'], '/script/') === 0) {
@@ -258,4 +263,3 @@ get('/404', function() {
     $homeController->notFound();
 });
 http_response_code(404);
-header('Location: /404');
