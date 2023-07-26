@@ -76,4 +76,8 @@ class ShortController
         }
         // edit / ke page shortlink invalid / dihapus
     }
+
+    public function debug($err) {
+        var_dump($err);
+    }
 }

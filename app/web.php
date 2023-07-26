@@ -124,12 +124,20 @@ get('/manage/short', function() {
     $shortController->shortPersonal();
 });
 
-if ($_SERVER['REQUEST_URI'] == '/sh' || strpos($_SERVER['REQUEST_URI'], '/sh/') === 0) {
-    $slug = substr($_SERVER['REQUEST_URI'], 4);
-    $shortController = new ShortController();
-    $shortController->redirect($slug);
-}
 
+
+// if($req[1] == "sh"){
+//     $slug = $req[2];
+//     $shortController = new ShortController();
+//     $shortController->redirect($slug);
+// }
+
+get('/sh', function() {
+    $URI = $_SERVER['REQUEST_URI'];
+    $_req = explode('/', $URI);
+    $shortController = new ShortController();
+    $shortController->debug($_req);
+});
 
 // Route untuk handle edit/delete script dan short
 if ($_SERVER['REQUEST_URI'] == '/script' || strpos($_SERVER['REQUEST_URI'], '/script/') === 0) {
