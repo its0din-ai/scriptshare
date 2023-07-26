@@ -45,6 +45,13 @@ body {
   .mobile {
     display: block;
   }
+
+  .mobile img {
+    margin-left: 3rem;
+  }
+  .mobile p {
+    margin-left: 2.5rem;
+  }
 }
 
 /* Show the div again on screens 768px and larger (laptops and desktops) */
