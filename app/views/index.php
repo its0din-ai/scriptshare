@@ -35,10 +35,6 @@
 <section id="about">
     <div class="container-sm ">
         <!-- GANTI ABOUT MULAI DARI SINI-->
-        <!-- <div class="card mx-auto" style="max-width: 540px;">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="./public/img/brand-lg.png" class="img-fluid rounded-start" alt="...">
         <div class="row">
             <div class="col-md-4 mb-3 mb-md-0">
                 <div class="card card-pfp">
@@ -57,12 +53,6 @@
                         <p class="card-text nim">L200210056</p>
                     </div>
                 </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">INI NANTI HOME, OKe bro</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                            additional content. This content is a little bit longer.</p>
-                        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
             </div>
             <div class="col-md-4 mb-3 mb-md-0">
                 <div class="card card-pfp">
@@ -73,13 +63,13 @@
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div>
             
             
         </div>
         <!-- SAMPAI SINI-->
     </div>
-    <div class="container-fluid pt-5 pb-5 bg-light">
+    <div class="container-fluid pt-5 pb-5">
       <div class="container text-center">
         <h2 class="display-3" id="staff">Tim Kami</h2>
         <p>
