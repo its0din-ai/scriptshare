@@ -124,8 +124,11 @@ get('/manage/short', function() {
     $shortController->shortPersonal();
 });
 
-if ($_SERVER['REQUEST_URI'] == '/sh' || strpos($_SERVER['REQUEST_URI'], '/sh/') === 0) {
-    $slug = substr($_SERVER['REQUEST_URI'], 4);
+$URI = $_SERVER['REQUEST_URI'];
+$req = explode('/', $URI);
+
+if($req[1] == "sh"){
+    $slug = $req[2];
     $shortController = new ShortController();
     $shortController->redirect($slug);
 }
