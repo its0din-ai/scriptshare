@@ -19,7 +19,7 @@
 
                 <?php
                 if ($adaSesiLogin) {
-                    echo '<a href="/dashboard" class="btn btn-outline-info rounded-pill">Dashboard</a>';
+                    echo '<a href="/dashboard" class="btn btn-outline-info rounded-pill"><span>Dashboard</span></a>';
                 } else {
                     echo '<a href="/regist" class="btn btn-outline-warning rounded-pill px-4">Register Now</a>';
                 }
@@ -63,7 +63,7 @@
                     </div>
                     <div class="col-md-4 mb-3 mb-md-0">
                         <div class="card card-pfp">
-                            <img src="/public/img/pfp.png" class="card-img" alt="profil">
+                            <img src="/public/img/aji.jpg" class="card-img" alt="profil">
                             <div class="card-img-overlay align-items-end txt-pfp">
                                 <p class="card-text nama">Muhammad Aji Saputra</p>
                                 <p class="card-text nim">L200210030</p>
