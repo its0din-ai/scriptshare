@@ -255,4 +255,3 @@ get('/404', function() {
     $homeController->notFound();
 });
 http_response_code(404);
-header('Location: /404');
