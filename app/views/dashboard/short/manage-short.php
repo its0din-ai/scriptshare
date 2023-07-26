@@ -17,9 +17,9 @@
                 foreach ($data as $short) {
                     // check if 'tujuan' have http:// or https://
                     if (strpos($short['tujuan'], 'http://') !== false || strpos($short['tujuan'], 'https://') !== false) {
-                        continue;
+                        $tujuan = $short['tujuan'];
                     } else {
-                        $short['tujuan'] = 'http://' . $short['tujuan'];
+                        $tujuan = 'http://' . $short['tujuan'];
                     }
 
                     echo '
@@ -31,7 +31,7 @@
                                 '.$short['short_slug'].'
                             </button>
                         </td>
-                        <td><a class="hvr-bounce-in link-light" target="_blank" href="' . $short['tujuan'] . '">' . $short['tujuan'] . '</a></td>
+                        <td><a class="hvr-bounce-in link-light" target="_blank" href="' . $tujuan . '">' . $tujuan . '</a></td>
                         
                         <td>
                             <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
