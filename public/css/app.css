@@ -215,3 +215,10 @@ section.hero .btn {
   border: 2px solid #dfdcd4;
   border-radius: 5px;
 }
+
+.hvr-active{
+  background-color: #222930;
+  border: 2px solid #C1C51D;
+  border-radius: 5px;
+  transition: 0.5s;
+}
