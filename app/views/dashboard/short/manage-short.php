@@ -108,6 +108,22 @@
                 });
             </script>';
             unset($_SESSION['sukses-delete']);
+        }else if(isset($_SESSION['sukses-tambah'])){
+            echo '<script>
+                let isi = document.getElementById("konten");
+                isi.innerHTML = "<span><i class=\"fa-regular fa-circle-check fa-bounce fa-lg align-center me-2\" style=\"color: #fafafa;\"></i></span> Berhasil menambahkan Shortlink";
+            
+                window.addEventListener("DOMContentLoaded", function() {
+                    // Find the trigger button element
+                    const triggerButton = document.getElementById("suksesTrigger");
+
+                    // Trigger the modal
+                    if (triggerButton) {
+                        triggerButton.click();
+                    }
+                });
+            </script>';
+            unset($_SESSION['sukses-tambah']);
         }
     ?>
 </div>

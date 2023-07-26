@@ -24,8 +24,8 @@ class ScriptController
             $stmt->bindParam(':konten_script', $data['konten_script']);
             $stmt->bindParam(':visibility', $data['visibility']);
             $stmt->execute();
-
-            header('Location: /dashboard/script');
+            $_SESSION['sukses-tambah'] = $data['judul_script'];
+            header('Location: /manage/script');
         }
     }
 
@@ -62,7 +62,6 @@ class ScriptController
         include dirname(__FILE__) . '/../views/layout/app.php';
 
         return $detail;
-        // header('Location: /dashboard/script');
     }
 
     public function edit_script($slug){
@@ -98,7 +97,7 @@ class ScriptController
         $stmt = $db->prepare($query);
         $stmt->execute([':slug' => $slug]);
 
-        header('Location: /dashboard/script/personal');
+        header('Location: /manage/script');
     }
 
 }

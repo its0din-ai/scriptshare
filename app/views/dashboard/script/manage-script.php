@@ -54,6 +54,42 @@
             ?>
         </tbody>
     </table>
+    <button type="button" id="suksesTrigger" style="display: none;" data-bs-target="#suksesToggle" data-bs-toggle="modal"></button>
+    <div class="modal fade" id="suksesToggle" aria-hidden="true" aria-labelledby="suksesToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body me-auto ms-auto">
+                <p id="konten">
+                    <span>
+                        <i class="fa-regular fa-circle-check fa-bounce fa-lg align-center me-2" style="color: #fafafa;"></i>
+                    </span>
+                ...... isi text</p>
+                <div class="row">
+                    <button class="btn btn-sm btn-outline-light" data-bs-target="#suksesToggle2" data-bs-toggle="modal">Done</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php
+        if(isset($_SESSION['sukses-tambah'])){
+            echo '<script>
+                let isi = document.getElementById("konten");
+                isi.innerHTML = "<span><i class=\"fa-regular fa-circle-check fa-bounce fa-lg align-center me-2\" style=\"color: #fafafa;\"></i></span> Berhasil menambahkan <u>' . $_SESSION['sukses-tambah'] . '</u>";
+            
+                window.addEventListener("DOMContentLoaded", function() {
+                    // Find the trigger button element
+                    const triggerButton = document.getElementById("suksesTrigger");
+
+                    // Trigger the modal
+                    if (triggerButton) {
+                        triggerButton.click();
+                    }
+                });
+            </script>';
+            unset($_SESSION['sukses-tambah']);
+        }
+        ?>
 </div>
 
 
