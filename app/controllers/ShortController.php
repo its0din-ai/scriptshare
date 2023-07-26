@@ -69,8 +69,13 @@ class ShortController
 
     public function redirect($slug){
         $tujuan = ShortModel::getTujuan($slug);
-        if($tujuan){
-            header('Location: ' . $tujuan, true, 301);
+        if (strpos($tujuan, 'http://') !== false || strpos($tujuan, 'https://') !== false) {
+            $redir = $tujuan;
+        } else {
+            $redir = 'http://' . $tujuan;
+        }
+        if($redir){
+            header('Location: ' . $redir, true, 301);
             exit();
         }else{
             header('Location: /not-exist', true, 301);
