@@ -77,4 +77,13 @@ class ShortController
             exit();
         }
     }
+
+    public function delete($slug){
+        $delete = ShortModel::delete($slug);
+        if($delete){
+            header('Location: /manage/short');
+        }else{
+            header('Location: /manage/short');
+        }
+    }
 }

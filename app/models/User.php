@@ -61,9 +61,9 @@ class User
         return $result;
     }
 
-    public static function where($param, $username){
+    public static function where($param, $data){
         $db = DB::getInstance();
-        $query = "SELECT * FROM users WHERE $param = '$username'";
+        $query = "SELECT * FROM users WHERE $param = '$data'";
         $stmt = $db->prepare($query);
         $stmt->execute();
         $result = $stmt->fetch();

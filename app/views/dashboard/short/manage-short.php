@@ -28,13 +28,41 @@
                         
                         <td>
                             <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
-                                <a type="button" class="btn btn-outline-light" href="/manage/short/' . $short['id'] . '">Edit</a>
+                                <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
                                 <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#konfirmasiToggler-' . $short['id'] . '">Hapus</button>
                             </div>
                         </td>
                     </tr>
                     
-                    <!-- Modal -->
+                    <!-- ModalEdit -->
+                    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalDialog" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="editModalDialog">Edit Shortlink</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form method="POST" action="/update/sc">
+                                <div class="mb-3">
+                                    <label for="slug" class="form-label">Short URL</label>
+                                    <input type="text" class="form-control disabled" id="slug" name="slug" value="' . $short['short_slug'] . '" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="slug" class="form-label">Original URL</label>
+                                    <input type="text" class="form-control disabled" id="slug" name="tujuan" value="' . $short['tujuan'] . '" readonly>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-outline-warning">Simpan Perubahan</button>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                    
+                    <!-- ModalSukses -->
                     <div class="modal fade" id="konfirmasiToggler-' . $short['id'] . '" aria-hidden="true" aria-labelledby="konfirmasiTogglerLabel-' . $short['id'] . '" tabindex="-1">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">

@@ -61,4 +61,16 @@ Class ShortModel{
         }
     }
 
+    public static function delete($slug){
+        $db = DB::getInstance();
+        $query = "DELETE FROM short_db WHERE short_slug = '$slug'";
+        $stmt = $db->prepare($query);
+        $stmt->execute();
+        if ($stmt->rowCount() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
