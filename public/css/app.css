@@ -30,6 +30,32 @@ body {
   background-clip: content-box;
 }
 
+/* Default styles for the div */
+.desktop {
+  display: none;
+  /* other styles... */
+}
+.mobile {
+  display: none;
+  /* other styles... */
+}
+
+/* Hide the div on screens smaller than 768px (tablets and below) */
+@media (max-width: 767.98px) {
+  .mobile {
+    display: block;
+  }
+}
+
+/* Show the div again on screens 768px and larger (laptops and desktops) */
+@media (min-width: 768px) {
+  .desktop {
+    display: block;
+  }
+}
+
+
+
 a {
   color: var(--blue);
 }
