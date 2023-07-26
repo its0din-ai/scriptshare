@@ -1,4 +1,5 @@
 <div class="container-sm ">
+    <a href="/manage/short" class="link-success"><h6>Kembali</h6></a>
     <h2><strong>Shortlinks</strong></h2>
     <hr>
     <div class="me-auto ms-auto w-md-50 mt-3">
@@ -11,10 +12,5 @@
                 <button type="submit" class="btn btn-sm btn-light" name="submit">Short!</button>
             </div>
         </form>
-    </div>
-    <div class="mx-auto mt-5 pt-5">
-        <div>
-            <a href="/manage/short" class="link-success"><h6>Manage Shortlinks</h6></a>
-        </div>
     </div>
 </div>

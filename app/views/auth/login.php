@@ -1,3 +1,21 @@
+                            
+<?php if (isset($_SESSION['success']) && $_SESSION['success']) { ?>
+    <div class="container-sm">
+    <div class="alert alert-info d-flex align-items-center mt-2 ms-auto me-auto" role="alert"
+        style="max-width: 390px; height: 35px;">
+        <i class="fa-solid fa-check me-3"></i>
+        <div class="">
+            <small>Anda berhasil mendaftar, silahkan Masuk!</small>
+        </div>
+        <button type="button" class="btn btn-sm" data-bs-dismiss="alert" aria-label="Close">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </div>
+<?php };
+    unset($_SESSION['success']); ?>
+    </div>
+
+
 <div class="desktop">
 
     <div class="container d-flex justify-content-center align-items-center min-vh-100 div-desktop" id="">
@@ -25,19 +43,6 @@
 
                         <p class="card-text">
                         <form method="POST">
-                            <?php if (isset($_SESSION['success']) && $_SESSION['success']) { ?>
-                            <div class="alert alert-info d-flex align-items-center mt-2 ms-auto me-auto" role="alert"
-                                style="max-width: 390px; height: 35px;">
-                                <i class="fa-solid fa-check me-3"></i>
-                                <div class="">
-                                    <small>Anda berhasil mendaftar, silahkan Masuk!</small>
-                                </div>
-                                <button type="button" class="btn btn-sm" data-bs-dismiss="alert" aria-label="Close">
-                                    <i class="fa-solid fa-xmark"></i>
-                                </button>
-                            </div>
-                            <?php };
-                            unset($_SESSION['success']); ?>
                             <!-- input username -->
                             <label for="username" class="form-label text-white">Username</label>
                             <div class="input-group mb-3">
@@ -104,19 +109,6 @@
 
                         <p class="card-text">
                         <form method="POST">
-                            <?php if (isset($_SESSION['success']) && $_SESSION['success']) { ?>
-                            <div class="alert alert-info d-flex align-items-center mt-2 ms-auto me-auto" role="alert"
-                                style="max-width: 390px; height: 35px;">
-                                <i class="fa-solid fa-check me-3"></i>
-                                <div class="">
-                                    <small>Anda berhasil mendaftar, silahkan Masuk!</small>
-                                </div>
-                                <button type="button" class="btn btn-sm" data-bs-dismiss="alert" aria-label="Close">
-                                    <i class="fa-solid fa-xmark"></i>
-                                </button>
-                            </div>
-                            <?php };
-                            unset($_SESSION['success']); ?>
                             <!-- input username -->
                             <label for="username" class="form-label text-white">Username</label>
                             <div class="input-group mb-3">
