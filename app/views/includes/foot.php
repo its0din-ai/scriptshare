@@ -1,9 +1,9 @@
-<footer class="footer mt-5 pt-5">
+<footer class="footer mt-5 pt-5 fut">
     <div class="container-sm">
         <hr>
         <div class="row">
             <div class="col-md-4">
-                <h5 class="text-uppercase mt-4"><strong>TechstackS</strong></h5>
+                <h5 class="text-uppercase mt-4"><strong>Techstacks</strong></h5>
                 <p class="text-justify mb-0">Web App ini dibangun menggunakan DVCs berupa Github dan setelah initial
                     release, Repository akan dibuat publik sehingga semua orang dapat membaca source code atau
                     berkontribusi untuk mengembangkan lebih jauh lagi. Berikut adalah beberapa Techstack yang digunakan

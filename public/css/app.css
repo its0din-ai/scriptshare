@@ -81,7 +81,7 @@ a {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 130vh;
   display: grid;
   grid-template-columns: repeat(20, 1fr);
   grid-template-rows: repeat(20, 1fr);
@@ -154,4 +154,42 @@ section.hero .btn {
 section.hero .btn-primary {
   background-color: var(--yellow);
   color: var(--dark);
+}
+
+.abt-sec{
+  margin-top: 100px;
+  background: linear-gradient(rgba(39,45,52,.2), 40%, rgba(33, 37, 41, 1));
+}
+
+.abt{
+  background-color: transparent !important;
+}
+
+.fut{
+  background: linear-gradient(rgba(33, 37, 41, .9), 10%, rgba(33, 37, 41, 1));
+}
+
+.txt-pfp{
+  background: linear-gradient(rgba(33, 37, 41, .5), 60%, rgba(33, 37, 41, 1));
+  color: var(--text-white);
+  font-size: 20px;
+  font-weight: 600;
+  transition: 0.5s;
+}
+
+.txt-pfp .nim{
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.txt-pfp:hover{
+  background: linear-gradient(rgba(33, 37, 41, .5), 60%, rgba(33, 37, 41, 1));
+  transition: 0.5s;
+  opacity: 0.5;
+
+}
+
+.card-pfp{
+  border: 2px solid #DFDCD4;
+  border-radius: 5px;
 }
