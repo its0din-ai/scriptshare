@@ -63,7 +63,6 @@ a {
   transform: scale(1.1);
 }
 
-
 /* background animation */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
@@ -124,7 +123,7 @@ Navbar
   color: var(--text-color);
   text-decoration: none;
   padding: 6px 20px;
-  transition: .5s;
+  transition: 0.5s;
 }
 
 .nav-custom a:hover {
@@ -141,7 +140,7 @@ Navbar
   border-bottom: 2px solid var(--blue);
   border-radius: 15px;
   transform: scale(0) translateY(50px);
-  transition: .5s;
+  transition: 0.5s;
   opacity: 0;
 }
 
@@ -149,7 +148,20 @@ Navbar
   transform: scale(1) translateY(0);
   opacity: 1;
 }
+/* -------------------------------------------------
+Form login 
+---------------------------------------------------- */
+.box-area {
+  width: 930px;
+}
 
+.right-box {
+  padding: 40px 30px 40px 30px;
+}
+
+.box-area ::placeholder {
+  font-size: 16px;
+}
 /* -------------------------------------------------
 Hero Section
 ---------------------------------------------------- */
@@ -179,112 +191,112 @@ section.hero .btn {
 Sosial Media Icon Animated
 ---------------------------------------------------- */
 .sosmed ul {
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  margin: 3rem 5.3rem ;
-  padding:0;
-  display:flex;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 3rem 5.3rem;
+  padding: 0;
+  display: flex;
 }
 .sosmed ul li {
-  list-style:none;
+  list-style: none;
 }
 .sosmed ul li a {
-  display:block;
-  position:relative;
-  width:50px;
-  height:50px;
-  line-height:50px;
-  font-size:20px;
-  text-align:center;
-  text-decoration:none;
-  color:var(--text-color);
+  display: block;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 20px;
+  text-align: center;
+  text-decoration: none;
+  color: var(--text-color);
   margin: 0 10px;
-  transition:.5s;
+  transition: 0.5s;
 }
 .sosmed ul li a span {
-  position:absolute;
-  transition: transform .5s;
+  position: absolute;
+  transition: transform 0.5s;
 }
 .sosmed ul li a span:nth-child(1),
-ul li a span:nth-child(3){
-  width:100%;
-  height:3px;
-  background:var(--text-color);
+ul li a span:nth-child(3) {
+  width: 100%;
+  height: 3px;
+  background: var(--text-color);
 }
 .sosmed ul li a span:nth-child(1) {
-  top:0;
-  left:0;
+  top: 0;
+  left: 0;
   transform-origin: right;
 }
 .sosmed ul li a:hover span:nth-child(1) {
   transform: scaleX(0);
   transform-origin: left;
-  transition:transform .5s;
+  transition: transform 0.5s;
 }
 
 .sosmed ul li a span:nth-child(3) {
-  bottom:0;
-  left:0;
+  bottom: 0;
+  left: 0;
   transform-origin: left;
 }
 .sosmed ul li a:hover span:nth-child(3) {
   transform: scaleX(0);
   transform-origin: right;
-  transition:transform .5s;
+  transition: transform 0.5s;
 }
 
 .sosmed ul li a span:nth-child(2),
-ul li a span:nth-child(4){
-  width:3px;
-  height:100%;
-  background:#404040;
+ul li a span:nth-child(4) {
+  width: 3px;
+  height: 100%;
+  background: #404040;
 }
 .sosmed ul li a span:nth-child(2) {
-  top:0;
-  left:0;
-  transform:scale(0);
+  top: 0;
+  left: 0;
+  transform: scale(0);
   transform-origin: bottom;
 }
 .sosmed ul li a:hover span:nth-child(2) {
   transform: scale(1);
   transform-origin: top;
-  transition:transform .5s;
+  transition: transform 0.5s;
 }
 .sosmed ul li a span:nth-child(4) {
-  top:0;
-  right:0;
-  transform:scale(0);
+  top: 0;
+  right: 0;
+  transform: scale(0);
   transform-origin: top;
 }
 .sosmed ul li a:hover span:nth-child(4) {
   transform: scale(1);
   transform-origin: bottom;
-  transition:transform .5s;
+  transition: transform 0.5s;
 }
 
 .sosmed .facebook:hover {
   color: #3b5998;
 }
-.sosmed .facebook:hover span { 
+.sosmed .facebook:hover span {
   background: #3b5998;
 }
 .sosmed .twitter:hover {
   color: #1da1f2;
 }
-.sosmed .twitter:hover span { 
+.sosmed .twitter:hover span {
   background: #1da1f2;
 }
 .sosmed .instagram:hover {
   color: #bc2a8d;
 }
-.sosmed .instagram:hover span { 
+.sosmed .instagram:hover span {
   background: #bc2a8d;
 }
 .sosmed .github:hover {
   color: var(--text-white);
 }
-.sosmed .github:hover span { 
+.sosmed .github:hover span {
   background: var(--text-white);
 }
 .sosmed ul li a .twitter {
@@ -337,9 +349,9 @@ ul li a span:nth-child(4){
   border-radius: 5px;
 }
 
-.hvr-active{
+.hvr-active {
   background-color: #222930;
-  border: 2px solid #C1C51D;
+  border: 2px solid #c1c51d;
   border-radius: 5px;
   transition: 0.5s;
 }
