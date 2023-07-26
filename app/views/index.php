@@ -59,7 +59,7 @@
             </div>
             <div class="col-md-4 mb-3 mb-md-0">
                 <div class="card card-pfp">
-                    <img src="/public/img/pfp.png" class="card-img" alt="profil">
+                    <img src="/public/img/aji.png" class="card-img" alt="profil">
                     <div class="card-img-overlay align-items-end txt-pfp">
                         <p class="card-text nama">Muhammad Aji Saputra</p>
                         <p class="card-text nim">L200210030</p>
