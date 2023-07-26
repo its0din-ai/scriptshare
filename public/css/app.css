@@ -31,7 +31,7 @@ body {
 }
 
 a {
-  color: #9cd4d5;
+  color: var(--blue);
 }
 
 .gambar-profil {
@@ -153,6 +153,7 @@ Form login
 ---------------------------------------------------- */
 .box-area {
   width: 930px;
+  background-color: var(--bg-color);
 }
 
 .right-box {
@@ -161,6 +162,11 @@ Form login
 
 .box-area ::placeholder {
   font-size: 16px;
+  color: var(--body-color);
+}
+
+.box-area .left-box {
+  background-color: var(--body-color);
 }
 /* -------------------------------------------------
 Hero Section

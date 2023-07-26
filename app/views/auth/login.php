@@ -1,8 +1,8 @@
 <div class="container d-flex justify-content-center align-items-center  min-vh-100">
     <div class="" style="max-width: 1200px;">
-        <div class="row border rounded-5 p-3 shadow box-area bg-white">
+        <div class="row border rounded-5 p-3 shadow box-area">
             <!-- kiri -->
-            <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box" style="background-color: #103cbe;">
+            <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box">
                 <!-- image -->
                 <div class="feature-image mb-3">
                     <img src="./public/img/login.svg" class="img-fluid rounded-start" alt="brand" style="width: 250px;">
@@ -14,8 +14,8 @@
             <!-- kanan -->
             <div class="col-md-6 right-box">
                 <div class="row align-items-center">
-                    <div class="header-text mb-4">
-                        <h5>Login / Sign Up</h5>
+                    <div class="header-text mb-4 mt-2 ">
+                        <h5 class="text-white">Login / Sign Up</h5>
                     </div>
 
                     <p class="card-text">
@@ -46,7 +46,7 @@
                             </button>
                         </div>
                         <div>
-                            <button type="submit" onclick="cekAkun()" class="btn btn-outline-success mt-3">Log
+                            <button type="submit" onclick="cekAkun()" class="btn btn-outline-info mt-3">Log
                                 in</button>
                         </div>
                     </form>
