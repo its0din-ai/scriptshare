@@ -249,14 +249,11 @@ get('/manage/short', function() {
     $managerController->indexShort();
 });
 
-get('/public', function() {
-    http_response_code(403);
-});
 
-// Handling kalo Not Found
-get('/404', function() {
-    $homeController = new HomeController();
-    $homeController->notFound();
-});
-http_response_code(404);
-header('Location: /404');
+// // Handling kalo Not Found
+// get('/404', function() {
+//     $homeController = new HomeController();
+//     $homeController->notFound();
+// });
+// http_response_code(404);
+// header('Location: /404');
