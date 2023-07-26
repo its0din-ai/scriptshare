@@ -45,17 +45,17 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto ms-auto">
-                    <li class="nav-item me-auto">
-                        <a class="nav-link" href="/#">Home</a>
+                    <li class="nav-item me-auto nav-custom">
+                        <a class="nav-link" href="/#">Home <span></span></a>
                     </li>
-                    <li class="nav-item me-auto">
-                        <a class="nav-link" href="/#about">About</a>
+                    <li class="nav-item me-auto nav-custom ms-3">
+                        <a class="nav-link" href="/#about">About <span></span></a>
                     </li>
 
                     <?php
                     $adaSesiLogin = isset($_SESSION['users']);
                     if ($adaSesiLogin) {
-                        echo '<li class="nav-item dropdown me-auto mt-auto mb-auto">
+                        echo '<li class="nav-item dropdown me-auto ms-4 mt-auto mb-auto">
                         <button class="btn btn-dark btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                             Dashboard
                         </button>
