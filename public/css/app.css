@@ -156,6 +156,10 @@ Form login
   background-color: var(--bg-color);
 }
 
+.box-area input {
+  color: var(--dark);
+}
+
 .right-box {
   padding: 40px 30px 40px 30px;
 }
