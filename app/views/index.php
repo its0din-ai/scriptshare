@@ -34,8 +34,7 @@
 <section id="about" class="abt-sec">
     <div class="container-sm pt-5 abt">
         <!-- GANTI ABOUT MULAI DARI SINI-->
-        <!-- Cards for medium and larger screens -->
-        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center mt-5">
             <h1 class="text-white">Profiles</h1>
         </div>
         <div class="row">
