@@ -70,14 +70,11 @@ class ShortController
     public function redirect($slug){
         $tujuan = ShortModel::getTujuan($slug);
         if($tujuan){
-            header('Location: ' . $tujuan);
+            header('Location: ' . $tujuan, true, 301);
+            exit();
         }else{
-            header('Location: /');
+            header('Location: /not-exist', true, 301);
+            exit();
         }
-        // edit / ke page shortlink invalid / dihapus
-    }
-
-    public function debug($err) {
-        var_dump($err);
     }
 }
