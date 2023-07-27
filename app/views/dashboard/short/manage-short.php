@@ -27,7 +27,7 @@
                         <th scope="row">' . $short['id'] . '</th>
                         <td>' . $short['owner'] . '</td>
                         <td>
-                            <button class="btn btn-sm btn-outline-light" onclick="copyToClipboard(\''.$user_domain = $_SERVER['HTTP_HOST'].'/'.$short['short_slug'].'\')">
+                            <button class="btn btn-sm btn-outline-light" onclick="copyToClipboard(\''.$user_domain = $_SERVER['HTTP_HOST'].'/sh/'.$short['short_slug'].'\')">
                                 '.$short['short_slug'].'
                             </button>
                         </td>
