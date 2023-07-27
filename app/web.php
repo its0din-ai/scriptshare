@@ -128,36 +128,38 @@ if($_req[1] == "sh"){
     $shortController = new ShortController();
     $shortController->redirect($slug);
 }
-
-
-// Route untuk handle edit/delete script dan short
-if ($_SERVER['REQUEST_URI'] == '/script' || strpos($_SERVER['REQUEST_URI'], '/script/') === 0) {
-    $slug = substr($_SERVER['REQUEST_URI'], 8);
+else if ($_req[1] == 'script') {
+    $slug = $_req[2];
     $scriptController = new ScriptController();
     $scriptController->script($slug);
 }
-else if ($_SERVER['REQUEST_URI'] == '/edit/sc' || strpos($_SERVER['REQUEST_URI'], '/edit/sc/') === 0) {
-    $slug = substr($_SERVER['REQUEST_URI'], 9);
+else if ($_req[1] == 'edit' && $_req[2] == 'sc') {
+    $slug = $_req[3];
     $scriptController = new ScriptController();
     $scriptController->edit_script($slug);
 }
-else if ($_SERVER['REQUEST_URI'] == '/edit/sh' || strpos($_SERVER['REQUEST_URI'], '/edit/sh/') === 0) {
-    $slug = substr($_SERVER['REQUEST_URI'], 9);
-    // edit short
+else if ($_req[1] == 'delete' && $_req[2] == 'sc') {
+    $id = $_req[3];
+    $scriptController = new ScriptController();
+    $scriptController->hapus_script($id);
 }
-else if ($_SERVER['REQUEST_URI'] == '/hapus/sh' || strpos($_SERVER['REQUEST_URI'], '/hapus/sh/') === 0) {
-    $slug = substr($_SERVER['REQUEST_URI'], 10);
-    // hapus short
+else if ($_req[1] == 'delete' && $_req[2] == 'sh') {
+    $slug = $_req[3];
+    $shortController = new ShortController();
+    $shortController->delete($slug);
 }
 
 post('/update/sc', function() {
     $scriptController = new ScriptController();
     $scriptController->update();
 });
-post('/hapus/sc', function() {
+
+post('/update/sh', function() {
+    $id = $_POST['id'];
     $slug = $_POST['slug'];
-    $scriptController = new ScriptController();
-    $scriptController->hapus_script($slug);
+    $tujuan = $_POST['tujuan'];
+    $shortController = new ShortController();
+    $shortController->edit($id, $slug, $tujuan);
 });
 
 

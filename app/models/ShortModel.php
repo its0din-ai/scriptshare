@@ -73,4 +73,19 @@ Class ShortModel{
         }
     }
 
+    public static function edit($id, $slug, $tujuan){
+        $db = DB::getInstance();
+        $query = "UPDATE short_db SET tujuan = :tujuan, short_slug = :short_slug WHERE id = :id";
+        $stmt = $db->prepare($query);
+        $stmt->bindParam(':tujuan', $tujuan);
+        $stmt->bindParam(':short_slug', $slug);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        if ($stmt->rowCount() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

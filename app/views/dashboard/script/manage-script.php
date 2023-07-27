@@ -44,7 +44,7 @@
                                     </p>
                                     <div class="row">
                                         <button class="btn btn-sm btn-outline-light" data-bs-dismiss="modal">Tidak</button>
-                                        <a class="btn btn-sm btn-outline-danger mt-2" href="/delete/script/' . $script['id'] . '">Ya</a>
+                                        <a class="btn btn-sm btn-outline-danger mt-2" href="/delete/sc/' . $script['id'] . '">Ya</a>
                                     </div>
                                 </div>
                             </div>
@@ -88,6 +88,22 @@
                 });
             </script>';
             unset($_SESSION['sukses-tambah']);
+        }else if(isset($_SESSION['sukses-hapus'])){
+            echo '<script>
+                let isi = document.getElementById("konten");
+                isi.innerHTML = "<span><i class=\"fa-regular fa-circle-check fa-bounce fa-lg align-center me-2\" style=\"color: #fafafa;\"></i></span> Script berhasil dihapus</u>";
+            
+                window.addEventListener("DOMContentLoaded", function() {
+                    // Find the trigger button element
+                    const triggerButton = document.getElementById("suksesTrigger");
+
+                    // Trigger the modal
+                    if (triggerButton) {
+                        triggerButton.click();
+                    }
+                });
+            </script>';
+            unset($_SESSION['sukses-hapus']);
         }
         ?>
 </div>

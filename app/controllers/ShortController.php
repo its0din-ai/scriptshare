@@ -91,4 +91,16 @@ class ShortController
             header('Location: /manage/short');
         }
     }
+
+    public function edit($id, $slug, $tujuan){
+
+        $updt = ShortModel::edit($id, $slug, $tujuan);
+        if($updt){
+            $_SESSION['sukses-edit'] = $slug;
+            header('Location: /manage/short');
+        }else{
+            $_SESSION['gagal-edit'] = $slug;
+            header('Location: /manage/short');
+        }
+    }
 }
