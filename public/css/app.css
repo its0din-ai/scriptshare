@@ -65,6 +65,9 @@ body {
   .mobile .regist p {
     margin-left: 2.8rem;
   }
+  .mobile .regist .card-text {
+    margin-left: 0;
+  }
 }
 
 /* Show the div again on screens 768px and larger (laptops and desktops) */
@@ -78,6 +81,9 @@ body {
   }
   .dekstop .regist p {
     margin-left: 2rem;
+  }
+  .dekstop .regist .card-text {
+    margin-left: 0;
   }
   .dekstop .regist small {
     margin-left: 1.8rem;
