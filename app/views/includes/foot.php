@@ -9,20 +9,15 @@
                     berkontribusi untuk mengembangkan lebih jauh lagi. Berikut adalah beberapa Techstack yang digunakan
                     oleh Web App ini:</p>
                 <ul style="list-style: none; padding-left: 0px;">
-                    <li class=""><a href="https://getbootstrap.com/" target="_blank"
-                            class="text-info hvr-bounce-in">Bootstrap</a></li>
-                    <li class=""><a href="https://jquery.com/" target="_blank"
-                            class="text-info hvr-bounce-in">jQuery</a></li>
-                    <li class=""><a href="https://fontawesome.com/" target="_blank"
-                            class="text-info hvr-bounce-in">Fontawesome</a></li>
-                    <li class=""><a href="https://animate.style/" target="_blank"
-                            class="text-info hvr-bounce-in">animate.css</a></li>
-                    <li class=""><a href="https://michalsnik.github.io/aos/" target="_blank"
-                            class="text-info hvr-bounce-in">AnimateOnScroll</a></li>
-                    <li class=""><a href="https://ianlunn.github.io/Hover/" target="_blank"
-                            class="text-info hvr-bounce-in">Hover.css</a></li>
+                    <li class=""><a href="https://getbootstrap.com/" target="_blank" class="text-info hvr-bounce-in">Bootstrap</a></li>
+                    <li class=""><a href="https://jquery.com/" target="_blank" class="text-info hvr-bounce-in">jQuery</a></li>
+                    <li class=""><a href="https://fontawesome.com/" target="_blank" class="text-info hvr-bounce-in">Fontawesome</a></li>
+                    <li class=""><a href="https://animate.style/" target="_blank" class="text-info hvr-bounce-in">animate.css</a></li>
+                    <li class=""><a href="https://michalsnik.github.io/aos/" target="_blank" class="text-info hvr-bounce-in">AnimateOnScroll</a></li>
+                    <li class=""><a href="https://ianlunn.github.io/Hover/" target="_blank" class="text-info hvr-bounce-in">Hover.css</a></li>
                 </ul>
             </div>
+
             <div class="col-md-4 sosmed">
                 <h5 class="text-uppercase mt-4"><strong>Media</strong></h5>
                 <ul style="list-style: none; padding-left: 0px;">
@@ -86,8 +81,7 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script type="text/babel" src="/public/js/Banner.js"></script>
     <script type="text/babel" src="/public/js/main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
     </script>
     <script src="https://kit.fontawesome.com/ad8e354ede.js" crossorigin="anonymous"></script>
     </body>
