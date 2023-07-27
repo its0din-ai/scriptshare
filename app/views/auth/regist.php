@@ -100,8 +100,8 @@
                             <!-- input password -->
                             <label for="password" class="form-label">Password</label>
                             <div class="input-group">
-                                <input id="password" type="password" class="form-control form-control-lg bg-light fs-6" name="password" required autocomplete="new-password">
-                                <button class="btn btn-outline-secondary" type="button" id="mataPassword" onclick="showPassword()">
+                                <input id="passwordMobile" type="password" class="form-control form-control-lg bg-light fs-6" name="password" required autocomplete="new-password">
+                                <button class="btn btn-outline-secondary" type="button" id="mataPasswordMobile" onclick="showPasswordMobile()">
                                     <i class="fa-solid fa-eye"></i>
                                 </button>
                             </div>
@@ -130,6 +130,17 @@
             document.getElementById("mataPassword").innerHTML = '<i class="fa-solid fa-eye"></i>';
         }
     }
+
+    function showPasswordMobile() {
+            var inputan = document.getElementById("passwordMobile");
+            if (inputan.type === "password") {
+                inputan.type = "text";
+                document.getElementById("mataPasswordMobile").innerHTML = '<i class="fa-solid fa-eye-slash"></i>';
+            } else {
+                inputan.type = "password";
+                document.getElementById("mataPasswordMobile").innerHTML = '<i class="fa-solid fa-eye"></i>';
+            }
+        }
 
     $(document).ready(function() {
         $('#username').on('input', function() {
