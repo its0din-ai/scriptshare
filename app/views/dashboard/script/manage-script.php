@@ -1,11 +1,11 @@
 <?php include dirname(__FILE__) . '/../home/dashboard.php';?>
 
 <div class="container-sm">
-    <a type="button" class="btn btn-primary mb-5" href="/dashboard/script">Tambah Shortlink</a>
+    <a type="button" class="btn btn-primary mb-5" href="/dashboard/script">Tambah Script</a>
     <table class="table table-hover">
         <thead>
             <tr>
-            <th scope="col">#</th>
+            <th scope="col">id</th>
             <th scope="col">Pemilik</th>
             <th scope="col">Judul</th>
             <th scope="col">Visibility</th>

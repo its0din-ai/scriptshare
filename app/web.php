@@ -123,6 +123,7 @@ get('/manage/short', function() {
 
 $URI = $_SERVER['REQUEST_URI'];
 $_req = explode('/', $URI);
+
 if($_req[1] == "sh"){
     $slug = $_req[2];
     $shortController = new ShortController();
@@ -138,16 +139,17 @@ else if ($_req[1] == 'edit' && $_req[2] == 'sc') {
     $scriptController = new ScriptController();
     $scriptController->edit_script($slug);
 }
+else if ($_req[1] == 'delete' && $_req[2] == 'sh') {
+    $id = $_req[3];
+    $shortController = new ShortController();
+    $shortController->delete($id);
+}
 else if ($_req[1] == 'delete' && $_req[2] == 'sc') {
     $id = $_req[3];
     $scriptController = new ScriptController();
     $scriptController->hapus_script($id);
 }
-else if ($_req[1] == 'delete' && $_req[2] == 'sh') {
-    $slug = $_req[3];
-    $shortController = new ShortController();
-    $shortController->delete($slug);
-}
+
 
 post('/update/sc', function() {
     $scriptController = new ScriptController();
@@ -269,5 +271,9 @@ get('/404', function() {
     $homeController = new HomeController();
     $homeController->notFound();
 });
+
+// whitelist array
+
+
 http_response_code(404);
 header('location: /404');

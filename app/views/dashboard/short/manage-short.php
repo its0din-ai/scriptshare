@@ -5,7 +5,7 @@
     <table class="table table-hover">
         <thead>
             <tr>
-            <th scope="col">#</th>
+            <th scope="col">id</th>
             <th scope="col">Pemilik</th>
             <th scope="col">Shortlink</th>
             <th scope="col">Tujuan</th>
@@ -129,10 +129,10 @@
                 });
             </script>';
             unset($_SESSION['sukses-edit']);
-        }else if(isset($_SESSION['sukses-delete'])){
+        }else if(isset($_SESSION['sukses-hapus'])){
             echo '<script>
                 let isi = document.getElementById("konten");
-                isi.innerHTML = "<span><i class=\"fa-regular fa-circle-check fa-bounce fa-lg align-center me-2\" style=\"color: #fafafa;\"></i></span> Berhasil menghapus Shortlink <strong>@' . $_SESSION['sukses-delete'] . '</strong>";
+                isi.innerHTML = "<span><i class=\"fa-regular fa-circle-check fa-bounce fa-lg align-center me-2\" style=\"color: #fafafa;\"></i></span> Berhasil menghapus Shortlink";
                 
                 window.addEventListener("DOMContentLoaded", function() {
                     // Find the trigger button element
@@ -144,7 +144,7 @@
                     }
                 });
             </script>';
-            unset($_SESSION['sukses-delete']);
+            unset($_SESSION['sukses-hapus']);
         }else if(isset($_SESSION['sukses-tambah'])){
             echo '<script>
                 let isi = document.getElementById("konten");

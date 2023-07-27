@@ -84,12 +84,10 @@ class ShortController
     }
 
     public function delete($slug){
-        $delete = ShortModel::delete($slug);
-        if($delete){
-            header('Location: /manage/short');
-        }else{
-            header('Location: /manage/short');
-        }
+        ShortModel::delete($slug);
+        $_SESSION['sukses-hapus'] = true;
+        header('Location: /manage/short', true, 301);
+        exit();
     }
 
     public function edit($id, $slug, $tujuan){
