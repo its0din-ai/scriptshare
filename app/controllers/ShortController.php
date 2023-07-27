@@ -103,4 +103,17 @@ class ShortController
             header('Location: /manage/short');
         }
     }
+
+    public function cekSlug($data){
+        $db = DB::getInstance();
+        $query = "SELECT * FROM short_db WHERE slug = '$data'";
+        $stmt = $db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->fetch();
+        if ($result) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

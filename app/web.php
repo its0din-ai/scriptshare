@@ -162,6 +162,20 @@ post('/update/sh', function() {
     $shortController->edit($id, $slug, $tujuan);
 });
 
+post('/cekslug', function($request, $response) {
+    $slug = $_POST['slug'];
+    $shortController = new ShortController();
+    $slugAda = $shortController->cekSlug($slug);
+
+    if ($slugAda) {
+        echo 'exist';
+    } else {
+        echo 'not';
+    }
+
+    return $response;
+});
+
 
 // Handler Edit
 get('/dashboard/edit', function() {

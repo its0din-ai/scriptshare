@@ -53,9 +53,10 @@
                             <form method="POST" action="/update/sh">
                                 <input type="text" class="form-control disabled" hidden id="id" name="id" value="' . $short['id'] . '">
                                 <div class="mb-3">
-                                    <label for="slug" class="form-label">Short URL</label>
-                                    <input type="text" class="form-control" id="slug" name="slug" value="' . $short['short_slug'] . '">
+                                    <label for="slugForm" class="form-label">Short URL</label>
+                                    <input type="text" class="form-control" id="slugForm" name="slug" value="' . $short['short_slug'] . '">
                                 </div>
+                                <p id="cekSlug"></p>
                                 <div class="mb-3">
                                     <label for="tujuan" class="form-label">Original URL</label>
                                     <input type="text" class="form-control" id="tujuan" name="tujuan" value="' . $short['tujuan'] . '">
@@ -63,7 +64,7 @@
                                 </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
-                                <button type="submit" class="btn btn-outline-warning">Simpan Perubahan</button>
+                                <button type="submit" class="btn btn-outline-warning" id="button-slug">Simpan Perubahan</button>
                             </div>
                         </div>
                             </form>
@@ -115,7 +116,7 @@
         if(isset($_SESSION['sukses-edit'])){
             echo '<script>
                 let isi = document.getElementById("konten");
-                isi.innerHTML = "<span><i class=\"fa-regular fa-circle-check fa-bounce fa-lg align-center me-2\" style=\"color: #fafafa;\"></i></span> Berhasil mengubah Shortlink <strong>@' . $_SESSION['sukses-edit'][1] . '</strong>";
+                isi.innerHTML = "<span><i class=\"fa-regular fa-circle-check fa-bounce fa-lg align-center me-2\" style=\"color: #fafafa;\"></i></span> Berhasil mengubah Shortlink <strong>' . $_SESSION['sukses-edit'] . '</strong>";
             
                 window.addEventListener("DOMContentLoaded", function() {
                     // Find the trigger button element
@@ -194,4 +195,33 @@
         btn.textContent = 'Copied!';
         btn.disabled = true;
     }
+
+    $(document).ready(function() {
+            $('#slugForm').on('input', function() {
+                var slug = $(this).val();
+                console.log(slug);
+                checkSlugDup(slug);
+            });
+        });
+
+        function checkSlugDup(slug) {
+        $.ajax({
+            url: '/cekslug',
+            method: 'POST',
+            data: { slug: slug },
+            success: function(response) {
+                console.log(response);
+            if (response === 'exist') {
+                $('#cekSlug').text('Maaf, Kode unik tidak tersedia');
+                $('#button-slug').addClass('d-none');
+            } else {
+                $('#cekSlug').text('');
+                $('#button-slug').removeClass('d-none');
+            }
+            },
+            error: function() {
+                console.error('ERROR 500');
+            }
+        });
+        }
 </script>
