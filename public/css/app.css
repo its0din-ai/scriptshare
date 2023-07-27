@@ -45,12 +45,25 @@ body {
   .mobile {
     display: block;
   }
-
-  .mobile img {
+  .dekstop {
+    display: none;
+  }
+  /* Login */
+  .mobile .login img {
     margin-left: 3rem;
   }
-  .mobile p {
+  .mobile .login p {
     margin-left: 2.5rem;
+  }
+  /* Regist */
+  .mobile .regist img {
+    margin-right: 0;
+  }
+  .mobile .regist small {
+    margin-left: 1.5rem;
+  }
+  .mobile .regist p {
+    margin-left: 2.8rem;
   }
 }
 
@@ -59,12 +72,22 @@ body {
   .desktop {
     display: block;
   }
+  /* regist */
+  .dekstop .regist img {
+    margin-left: 0.5rem;
+  }
+  .dekstop .regist p {
+    margin-left: 2rem;
+  }
+  .dekstop .regist small {
+    margin-left: 1.8rem;
+  }
 }
+/* end */
 
 a {
   color: var(--blue);
 }
-
 .gambar-profil {
   object-fit: cover;
   width: 100%;
@@ -94,7 +117,9 @@ a {
   transform: scale(1.1);
 }
 
-/* background animation */
+/* -------------------------------------------------
+Background animation
+---------------------------------------------------- */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
 .bgAnimation {
