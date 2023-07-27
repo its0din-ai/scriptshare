@@ -55,6 +55,9 @@ body {
   .mobile .login p {
     margin-left: 2.5rem;
   }
+  .mobile .login .card-text {
+    margin-left: 0;
+  }
   /* Regist */
   .mobile .regist img {
     margin-right: 0;
