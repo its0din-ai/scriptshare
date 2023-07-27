@@ -91,13 +91,15 @@ class ScriptController
         header('Location: /manage/script');
     }
     
-    public function hapus_script($slug){
+    public function hapus_script($id){
         $db = DB::getInstance();
-        $query = "DELETE FROM script_db WHERE script_slug = :slug";
+        $query = "DELETE FROM script_db WHERE id = :id";
         $stmt = $db->prepare($query);
-        $stmt->execute([':slug' => $slug]);
+        $stmt->execute([':id' => $id]);
 
-        header('Location: /manage/script');
+        $_SESSION['sukses-hapus'] = true;
+        header('Location: /manage/script', true, 301);
+        exit();
     }
 
 }

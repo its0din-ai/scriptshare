@@ -1,7 +1,6 @@
 <?php include dirname(__FILE__) . '/../home/dashboard.php';?>
 
 <div class="container-sm">
-
     <table class="table table-hover">
         <thead>
             <tr>

@@ -1,4 +1,5 @@
 <div class="container-sm ">
+    <a href="/manage/script" class="link-success"><h6>Kembali</h6></a>
     <h2><strong>Index Script</strong></h2>
     <hr>
     <div class="me-auto ms-auto w-md-50 mt-3">
@@ -25,8 +26,7 @@
     </div>
     <div class="mx-auto mt-5 pt-5">
         <div>
-            <a href="/manage/script" class="link-success"><h6>Script Personal</h6></a>
-            <h6>Script Publik</h6>
+            <h3>Script Publik</h3>
         </div>
         <hr>
         <?php

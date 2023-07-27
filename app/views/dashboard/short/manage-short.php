@@ -1,7 +1,7 @@
 <?php include dirname(__FILE__) . '/../home/dashboard.php';?>
 
 <div class="container-sm">
-
+    <a type="button" class="btn btn-primary mb-5" href="/dashboard/shortlink">Tambah Shortlink</a>
     <table class="table table-hover">
         <thead>
             <tr>
@@ -15,27 +15,34 @@
         <tbody>
             <?php
                 foreach ($data as $short) {
+                    // check if 'tujuan' have http:// or https://
+                    if (strpos($short['tujuan'], 'http://') !== false || strpos($short['tujuan'], 'https://') !== false) {
+                        $tujuan = $short['tujuan'];
+                    } else {
+                        $tujuan = 'http://' . $short['tujuan'];
+                    }
+
                     echo '
                     <tr>
                         <th scope="row">' . $short['id'] . '</th>
                         <td>' . $short['owner'] . '</td>
                         <td>
-                            <button class="btn btn-sm btn-outline-light" onclick="copyToClipboard(\'http://scriptshare.tech/sh/'.$short['short_slug'].'\')">
+                            <button class="btn btn-sm btn-outline-light" onclick="copyToClipboard(\''.$user_domain = $_SERVER['HTTP_HOST'].'/sh/'.$short['short_slug'].'\')">
                                 '.$short['short_slug'].'
                             </button>
                         </td>
-                        <td><a class="hvr-bounce-in link-light" target="_blank" href="' . $short['tujuan'] . '">' . $short['tujuan'] . '</a></td>
+                        <td><a class="hvr-bounce-in link-light" target="_blank" href="' . $tujuan . '">' . $tujuan . '</a></td>
                         
                         <td>
                             <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
-                                <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
+                                <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#editModal-'.$short['id'].'">Edit</button>
                                 <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#konfirmasiToggler-' . $short['id'] . '">Hapus</button>
                             </div>
                         </td>
                     </tr>
                     
                     <!-- ModalEdit -->
-                    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalDialog" aria-hidden="true">
+                    <div class="modal fade" id="editModal-'.$short['id'].'" tabindex="-1" aria-labelledby="editModalDialog-'.$short['id'].'" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                         <div class="modal-header">
@@ -43,22 +50,23 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form method="POST" action="/update/sc">
+                            <form method="POST" action="/update/sh">
+                                <input type="text" class="form-control disabled" hidden id="id" name="id" value="' . $short['id'] . '">
                                 <div class="mb-3">
                                     <label for="slug" class="form-label">Short URL</label>
-                                    <input type="text" class="form-control disabled" id="slug" name="slug" value="' . $short['short_slug'] . '" readonly>
+                                    <input type="text" class="form-control" id="slug" name="slug" value="' . $short['short_slug'] . '">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="slug" class="form-label">Original URL</label>
-                                    <input type="text" class="form-control disabled" id="slug" name="tujuan" value="' . $short['tujuan'] . '" readonly>
+                                    <label for="tujuan" class="form-label">Original URL</label>
+                                    <input type="text" class="form-control" id="tujuan" name="tujuan" value="' . $short['tujuan'] . '">
                                 </div>
+                                </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+                                <button type="submit" class="btn btn-outline-warning">Simpan Perubahan</button>
+                            </div>
+                        </div>
                             </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
-                            <button type="button" class="btn btn-outline-warning">Simpan Perubahan</button>
-                        </div>
-                        </div>
                     </div>
                     </div>
                     
@@ -75,7 +83,7 @@
                                     </p>
                                     <div class="row">
                                         <button class="btn btn-sm btn-outline-light" data-bs-dismiss="modal">Tidak</button>
-                                        <a class="btn btn-sm btn-outline-danger mt-2" href="/delete/short/' . $short['id'] . '">Ya</a>
+                                        <a class="btn btn-sm btn-outline-danger mt-2" href="/delete/sh/' . $short['id'] . '">Ya</a>
                                     </div>
                                 </div>
                             </div>
@@ -107,7 +115,7 @@
         if(isset($_SESSION['sukses-edit'])){
             echo '<script>
                 let isi = document.getElementById("konten");
-                isi.innerHTML = "<span><i class=\"fa-regular fa-circle-check fa-bounce fa-lg align-center me-2\" style=\"color: #fafafa;\"></i></span> Berhasil mengubah user <em>@' . $_SESSION['sukses-edit'][1] . '</em>";
+                isi.innerHTML = "<span><i class=\"fa-regular fa-circle-check fa-bounce fa-lg align-center me-2\" style=\"color: #fafafa;\"></i></span> Berhasil mengubah Shortlink <strong>@' . $_SESSION['sukses-edit'][1] . '</strong>";
             
                 window.addEventListener("DOMContentLoaded", function() {
                     // Find the trigger button element
@@ -123,7 +131,7 @@
         }else if(isset($_SESSION['sukses-delete'])){
             echo '<script>
                 let isi = document.getElementById("konten");
-                isi.innerHTML = "<span><i class=\"fa-regular fa-circle-check fa-bounce fa-lg align-center me-2\" style=\"color: #fafafa;\"></i></span> Berhasil menghapus user <em>@' . $_SESSION['sukses-delete'] . '</em>";
+                isi.innerHTML = "<span><i class=\"fa-regular fa-circle-check fa-bounce fa-lg align-center me-2\" style=\"color: #fafafa;\"></i></span> Berhasil menghapus Shortlink <strong>@' . $_SESSION['sukses-delete'] . '</strong>";
                 
                 window.addEventListener("DOMContentLoaded", function() {
                     // Find the trigger button element

@@ -69,8 +69,13 @@ class ShortController
 
     public function redirect($slug){
         $tujuan = ShortModel::getTujuan($slug);
-        if($tujuan){
-            header('Location: ' . $tujuan, true, 301);
+        if (strpos($tujuan, 'http://') !== false || strpos($tujuan, 'https://') !== false) {
+            $redir = $tujuan;
+        } else {
+            $redir = 'http://' . $tujuan;
+        }
+        if($redir){
+            header('Location: ' . $redir, true, 301);
             exit();
         }else{
             header('Location: /not-exist', true, 301);
@@ -83,6 +88,18 @@ class ShortController
         if($delete){
             header('Location: /manage/short');
         }else{
+            header('Location: /manage/short');
+        }
+    }
+
+    public function edit($id, $slug, $tujuan){
+
+        $updt = ShortModel::edit($id, $slug, $tujuan);
+        if($updt){
+            $_SESSION['sukses-edit'] = $slug;
+            header('Location: /manage/short');
+        }else{
+            $_SESSION['gagal-edit'] = $slug;
             header('Location: /manage/short');
         }
     }
