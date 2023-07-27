@@ -107,7 +107,7 @@ unset($_SESSION['success']); ?>
                     <!-- image -->
                     <div class="feature-image mb-3">
                         <img src="./public/img/login.svg" class="img-fluid rounded-start mb-3" alt="brand"
-                            style="width: 150px;">
+                            style="width: 120px;">
                         <p class="text-white fs-2 mb-n3"
                             style="font-family: 'courier new', courier, monospace; font-weight: 300;">
                             Wellcome back</p>
